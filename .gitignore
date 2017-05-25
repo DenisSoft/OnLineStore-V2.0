@@ -13,3 +13,4 @@ database/target/
 service/target/
 web/target/
 lib/
+target/
