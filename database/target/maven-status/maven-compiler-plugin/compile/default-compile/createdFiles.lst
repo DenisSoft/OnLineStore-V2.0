@@ -1,9 +1,0 @@
-ru\belitavitex\connection\ConnectionManager.class
-ru\belitavitex\entity\Category.class
-ru\belitavitex\entity\OrderStatus.class
-ru\belitavitex\entity\Product.class
-ru\belitavitex\entity\CustomerOrder.class
-ru\belitavitex\entity\Groups.class
-ru\belitavitex\dao\PersonDao.class
-ru\belitavitex\entity\BaseEntity.class
-ru\belitavitex\entity\Person.class
