@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bdffcc2-56ce-4cf3-a3a8-5b43e25556bd" name="Default" comment="Added file .gitignore">
+    <list default="true" id="6bdffcc2-56ce-4cf3-a3a8-5b43e25556bd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -1231,7 +1231,7 @@
       <workItem from="1495698983819" duration="827000" />
       <workItem from="1495699900474" duration="554000" />
       <workItem from="1495700967648" duration="885000" />
-      <workItem from="1495703033163" duration="1448000" />
+      <workItem from="1495703033163" duration="1596000" />
     </task>
     <task id="LOCAL-00001" summary="Added by gitignore">
       <created>1495703372887</created>
@@ -1254,7 +1254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495704223478</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added to file .gitignore folder target">
+      <created>1495704535548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495704535548</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1275,7 +1282,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22526000" />
+    <option name="totallyTimeSpent" value="22674000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -1354,7 +1361,8 @@
     <MESSAGE value="Added by gitignore" />
     <MESSAGE value="Clean" />
     <MESSAGE value="Added file .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added file .gitignore" />
+    <MESSAGE value="Added to file .gitignore folder target" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added to file .gitignore folder target" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
