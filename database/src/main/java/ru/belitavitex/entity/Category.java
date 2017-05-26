@@ -19,4 +19,9 @@ public class Category extends BaseEntity {
     @Getter
     @Setter
     private String categoryName;
+
+    public Category(long id, String categoryName) {
+        super(id);
+        this.categoryName = categoryName;
+    }
 }

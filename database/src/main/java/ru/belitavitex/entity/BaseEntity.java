@@ -17,4 +17,8 @@ public abstract class BaseEntity {
     @Getter
     @Setter
     private long id;
+
+    public BaseEntity(long id) {
+        this.id = id;
+    }
 }
