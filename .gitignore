@@ -7,7 +7,7 @@
 *.iml
 out
 gen
-.gitignore
+
 
 database/target/
 service/target/
@@ -17,3 +17,5 @@ target/
 External Libraries/
 .idea/
 /.idea/
+database/src/test/
+web/src/main/resources/
