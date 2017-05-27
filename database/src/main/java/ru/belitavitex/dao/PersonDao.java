@@ -33,14 +33,14 @@ public class PersonDao {
         List<Person> list = new ArrayList<>();
         try (Connection connection = ConnectionManager.getConnection()) {
             try (PreparedStatement preparedStatement = connection.prepareStatement(
-                    " SELECT p.id, first_name, lastName, email, password, address, " +
-                            "phone, groups_name FROM person AS p JOIN groups AS g ON " +
+                    " SELECT p.id, first_name, last_Name, email, password, address, " +
+                            "phone, groups_name FROM persons AS p JOIN groups AS g ON " +
                             "p.groups_id = g.id")) {
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
                     while (resultSet.next()) {
                         list.add(new Person(resultSet.getLong("id"),
                                 resultSet.getString("first_name"),
-                                resultSet.getString("lastName"),
+                                resultSet.getString("last_Name"),
                                 resultSet.getString("email"),
                                 resultSet.getString("password"),
                                 resultSet.getString("address"),

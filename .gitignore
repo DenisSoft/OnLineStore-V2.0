@@ -15,3 +15,5 @@ web/target/
 lib/
 target/
 External Libraries/
+.idea/
+/.idea/
