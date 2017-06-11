@@ -1,7 +1,11 @@
 package ru.belitavitex.service;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import ru.belitavitex.dao.PersonDao;
 import ru.belitavitex.entity.Person;
+
 import java.util.List;
 
 /**
@@ -23,6 +27,11 @@ public class PersonService {
     }
 
     public static List<Person> getAll() {
-        return PersonDao.getInstance().getAll();
+        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        List<Person> personList = PersonDao.getInstance().getAll(session);
+        session.close();
+        sessionFactory.close();
+        return personList;
     }
 }

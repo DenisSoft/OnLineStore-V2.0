@@ -1,30 +1,27 @@
 package ru.belitavitex.entity;
 
+import lombok.*;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * Created by Dzianis on 07.04.2017.
+ * Created by Dzianis on 30.05.2017.
  */
-public class Category extends BaseEntity {
-    private String categoryName;
+@Entity
+@Table(name = "categories")
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "products")
+public class Category extends BaseEntityWithName{
 
-    public Category(String categoryName) {
-        this.categoryName = categoryName;
+    public Category(String name) {
+        super(name);
     }
 
-    public Category(long id, String categoryName) {
-        super(id);
-        this.categoryName = categoryName;
-    }
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "category")
+    private Set<Product> products = new HashSet<>();
 
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    @Override
-    public String toString() {
-        return categoryName;
-    }
 }

@@ -1,32 +1,23 @@
 package ru.belitavitex.entity;
 
+import lombok.*;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+
 /**
- * Created by Dzianis on 28.03.2017.
+ * Created by Dzianis on 30.05.2017.
  */
+@Entity
+@Table(name = "persons")
+@ToString(exclude = "reviews")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Person extends BaseEntity {
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private String address;
-    private String phone;
-    private Groups groups;
-
-
-    public Person(long id, String firstName, String lastName, String email, String password,
-                  String address, String phone, Groups groups) {
-        super(id);
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-        this.phone = phone;
-        this.groups = groups;
-    }
 
     public Person(String firstName, String lastName, String email, String password,
-                  String password1, String address, String phone, Groups groups) {
+                  Address address, String phone, Groups groups) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -36,72 +27,50 @@ public class Person extends BaseEntity {
         this.groups = groups;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
+    @Getter
+    @Setter
+    @Column(name = "first_name")
+    private String firstName;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+    @Getter
+    @Setter
+    @Column(name = "last_name")
+    private String lastName;
 
-    public String getLastName() {
-        return lastName;
-    }
+    @Getter
+    @Setter
+    @Column(name = "email")
+    private String email;
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    @Getter
+    @Setter
+    @Column(name = "password")
+    private String password;
 
-    public String getEmail() {
-        return email;
-    }
+    @Getter
+    @Setter
+    @OneToOne(cascade = CascadeType.ALL) //, fetch = FetchType.LAZY)
+    @JoinColumn(name="addresses_id")
+    private Address address;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @Getter
+    @Setter
+    @Column(name = "phone")
+    private String phone;
 
-    public String getPassword() {
-        return password;
-    }
+    @Getter
+    @Setter
+    @Enumerated(EnumType.STRING)
+    @Column(name = "groups")
+    private Groups groups;
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @ManyToMany(mappedBy = "persons")
+    @Getter
+    @Setter
+    private Set<Review> reviews = new HashSet<>();
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Groups getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Groups groups) {
-        this.groups = groups;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
-                ", groups=" + groups +
-                '}';
+    @Transient
+    public String fullName() {
+        return firstName + " " + lastName;
     }
 }

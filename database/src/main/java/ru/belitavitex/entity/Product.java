@@ -1,80 +1,56 @@
 package ru.belitavitex.entity;
 
+import lombok.*;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by Dzianis on 28.03.2017.
  */
-public class Product extends BaseEntity {
-    private Category category;
-    private String productName;
+@Entity
+@Table(name = "products")
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+public class Product extends BaseEntityWithName{
+
+    public Product(String name, String description, int price, int residue, Category category) {
+        super(name);
+        this.description = description;
+        this.price = price;
+        this.residue = residue;
+        this.category = category;
+    }
+
+    @Getter
+    @Setter
+    @Column(name = "description")
     private String description;
+
+    @Getter
+    @Setter
+    @Column(name = "price")
     private int price;
+
+    @Getter
+    @Setter
+    @Column(name = "residue")
     private int residue;
 
-    public Product(Category category, String productName, String description, int price, int residue) {
-        this.category = category;
-        this.productName = productName;
-        this.description = description;
-        this.price = price;
-        this.residue = residue;
-    }
+    @ManyToMany(mappedBy = "products")
+    @Getter
+    @Setter
+    private Set<Review> reviews = new HashSet<>();
 
-    public Product(Long id, Category category, String productName, String description, int price, int residue) {
-        super(id);
-        this.category = category;
-        this.productName = productName;
-        this.description = description;
-        this.price = price;
-        this.residue = residue;
-    }
+    @Getter
+    @Setter
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public int getResidue() {
-        return residue;
-    }
-
-    public void setResidue(int residue) {
-        this.residue = residue;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "category=" + category +
-                ", productName='" + productName + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", residue=" + residue +
-                '}';
-    }
+    @ManyToMany(mappedBy = "products")
+    @Getter
+    @Setter
+    private Set<Promotion> promotions = new HashSet<>();
 }
