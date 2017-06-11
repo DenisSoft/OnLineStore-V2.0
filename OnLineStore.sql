@@ -47,7 +47,25 @@ CREATE TABLE articles (id INT AUTO_INCREMENT, name VARCHAR(50), text VARCHAR(300
              
              
              
+INSERT INTO addresses (country, city, street, house, building, apartment, zip) 
+             VALUES ('Беларусь', 'Минск', 'Голодеда', 5, 1, 75, '220066');   
              
+INSERT INTO addresses (country, city, street, house, building, apartment, zip)
+             VALUES ('Беларусь', 'Минск', 'Мирошниченко', 10, 1, 148, '220033'); 
+             
+INSERT INTO addresses (country, city, street, house, building, apartment, zip)
+             VALUES ('Беларусь', 'Минск', 'Рокоссовского', 4, 4, 435, '220047');  
+                   
+INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups) 
+                  VALUES ('Максим', 'Долгорукий', 'dolgorukiy@bk.ru','1', 1, '+375297589843', 'USER'); 
+    
+INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups) 
+                  VALUES ('Егор', 'Миронов', 'mironov@bk.ru','2', 2, '+375296849032', 'USER'); 
+                  
+INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups) 
+                  VALUES ('Елена', 'Хмель', 'hemel@bk.ru','3', 3, '+375296849033', 'ADMIN');                  
+             
+            
         
              
              
