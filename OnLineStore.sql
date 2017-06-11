@@ -29,11 +29,11 @@ CREATE TABLE reviews (id INT AUTO_INCREMENT, comment VARCHAR(300), date_created_
              
 CREATE TABLE persons_reviews (person_id INT, review_id INT, PRIMARY KEY(person_id, review_id),
 			 FOREIGN KEY (person_id) REFERENCES persons(id),
-             FOREIGN KEY (review_id) REFERENCES review(id))ENGINE=MyISAM CHARACTER SET=utf8;   
+             FOREIGN KEY (review_id) REFERENCES reviews(id))ENGINE=MyISAM CHARACTER SET=utf8;   
              
 CREATE TABLE products_reviews (product_id INT, review_id INT, PRIMARY KEY(product_id, review_id),
 			 FOREIGN KEY (product_id) REFERENCES products(id),
-             FOREIGN KEY (review_id) REFERENCES review(id))ENGINE=MyISAM CHARACTER SET=utf8;       
+             FOREIGN KEY (review_id) REFERENCES reviews(id))ENGINE=MyISAM CHARACTER SET=utf8;       
              
 CREATE TABLE promotions (id INT AUTO_INCREMENT, name VARCHAR(50), date_start DATE, date_end DATE,
              discount INT, KEY(id)) ENGINE=MyISAM CHARACTER SET=utf8;
