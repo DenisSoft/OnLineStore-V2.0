@@ -29,7 +29,7 @@ public class PersonService {
     public static List<Person> getAll() {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.openSession();
-        List<Person> personList = PersonDao.getInstance().getAll(session);
+        List<Person> personList = PersonDao.getInstance().findAll(session);
         session.close();
         sessionFactory.close();
         return personList;

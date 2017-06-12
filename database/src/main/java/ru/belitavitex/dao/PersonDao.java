@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by Dzianis on 09.04.2017.
  */
-public class PersonDao {
+public class PersonDao extends BaseDao<Person>{
     private static final Object LOCK = new Object();
     private static PersonDao INSTANCE = null;
 
@@ -27,9 +27,13 @@ public class PersonDao {
         return INSTANCE;
     }
 
-    public static List<Person> getAll(Session session) {
-        return session.createQuery("from Person", Person.class).getResultList();
+    public PersonDao(){
+        super(Person.class);
     }
+
+//    public static List<Person> getAll(Session session) {
+//        return session.createQuery("from Person", Person.class).getResultList();
+//    }
 
     public static List<Person> getPage(Session session, int maxResults, int firstResult) {
         return session.createQuery("from Person", Person.class)
