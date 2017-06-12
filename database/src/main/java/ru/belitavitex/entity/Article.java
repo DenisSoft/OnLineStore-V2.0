@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,5 +33,9 @@ public class Article extends BaseEntityWithName {
     @Getter
     private Set<Review> reviews = new HashSet<>();
 
-    
+    @Version
+    @Getter
+    @Setter
+    @Column(name = "update_time")
+    private LocalDateTime updateTime;
 }
