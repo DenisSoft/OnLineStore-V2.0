@@ -14,6 +14,7 @@ import java.util.List;
 public abstract class BaseDao<T extends BaseEntity> {
 
     private Class<T> entityClass;
+
     public BaseDao(Class<T> entityClass){
         this.entityClass = entityClass;
     }
