@@ -8,6 +8,8 @@ import ru.belitavitex.entity.Person;
 
 import java.util.List;
 
+import static ru.belitavitex.dao.BaseDao.SESSION_FACTORY;
+
 /**
  * Created by Dzianis on 13.04.2017.
  */
@@ -27,11 +29,9 @@ public class PersonService {
     }
 
     public static List<Person> getAll() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-        Session session = sessionFactory.openSession();
-        List<Person> personList = PersonDao.getInstance().findAll(session);
+        Session session = SESSION_FACTORY.openSession();
+        List<Person> personList = PersonDao.getInstance().findAll();
         session.close();
-        sessionFactory.close();
         return personList;
     }
 }

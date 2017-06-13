@@ -10,7 +10,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "products")
-@ToString
+@ToString(exclude = "category")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product extends BaseEntityWithName{

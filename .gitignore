@@ -1,12 +1,8 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Example user template template
-### Example user template
-
-# IntelliJ project files
 .idea
-/.idea
-.idea/
-/.idea/
-*.iml
-out
-gen
+hibernate-minimal-configuration.iml
+log4j.log
+target/
+database/src/test/resources/hibernate-configuration
+database/target/
+service/target/
+web/target/

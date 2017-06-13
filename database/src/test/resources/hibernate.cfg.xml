@@ -2,27 +2,33 @@
 <!DOCTYPE hibernate-configuration SYSTEM
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
-        <property name="connection.url">jdbc:h2:mem:on_line_store</property>
-        <property name="connection.username">sa</property>
-        <property name="connection.password"/>
-        <property name="show_sql">true</property>
-        <property name="format_sql">true</property>
-        <property name="hbm2ddl.auto">create-drop</property>
+  <session-factory>
+    <property name="connection.driver_class">org.h2.Driver</property>
+    <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+    <property name="connection.url">jdbc:h2:mem:on_line_store</property>
+    <property name="connection.username">sa</property>
+    <property name="connection.password"/>
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="hbm2ddl.auto">create-drop</property>
 
-        <mapping class="ru.belitavitex.entity.Person"/>
-        <mapping class="ru.belitavitex.entity.Product"/>
-        <mapping class="ru.belitavitex.entity.Category"/>
-        <mapping class="ru.belitavitex.entity.CustomerOrder"/>
-        <mapping class="ru.belitavitex.entity.Address"/>
-        <mapping class="ru.belitavitex.entity.Review"/>
-        <mapping class="ru.belitavitex.entity.OrderItem"/>
-        <mapping class="ru.belitavitex.entity.Promotion"/>
-        <mapping class="ru.belitavitex.entity.Article"/>
-    </session-factory>
+    <!--<property name="cache.use_second_level_cache">true</property>-->
+    <!--<property name="cache.use_query_cache">true</property>-->
+    <!--<property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+    <!--<property name="net.sf.ehcache.configurationResourceName">/ehcache-config.xml</property>-->
+
+    <!--<property name="hibernate.generate_statistics">true</property>-->
+
+    <mapping class="ru.belitavitex.entity.Person"/>
+    <mapping class="ru.belitavitex.entity.Product"/>
+    <mapping class="ru.belitavitex.entity.Category"/>
+    <mapping class="ru.belitavitex.entity.CustomerOrder"/>
+    <mapping class="ru.belitavitex.entity.Address"/>
+    <mapping class="ru.belitavitex.entity.Review"/>
+    <mapping class="ru.belitavitex.entity.OrderItem"/>
+    <mapping class="ru.belitavitex.entity.Promotion"/>
+    <mapping class="ru.belitavitex.entity.Article"/>
+  </session-factory>
 </hibernate-configuration>
-
 
 

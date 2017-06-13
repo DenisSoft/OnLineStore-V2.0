@@ -31,9 +31,10 @@ public class PersonTest {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Person savedPerson = session.find(Person.class, 1L);
-        Assert.assertEquals(savedPerson.getFirstName(), "Максим");
+        Person savedPerson = session.find(Person.class, 2L);
+        Assert.assertEquals(savedPerson.getFirstName(), "Егор");
 
+        
         transaction.commit();
         session.close();
     }
