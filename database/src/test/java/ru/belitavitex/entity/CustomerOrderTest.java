@@ -17,49 +17,20 @@ import java.time.LocalDate;
 /**
  * Created by Dzianis on 07.06.2017.
  */
-public class CustomerOrderTest {
+public class CustomerOrderTest extends BaseTest<CustomerOrder>{
 
-    private static SessionFactory SESSION_FACTORY;
-    private static Logger LOGGER = Logger.getLogger(PersonTest.class);
-
-    @BeforeClass
-    public static void init() {
-
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        PersonTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
-        ProductTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
+    @Override
+    protected Class<CustomerOrder> getEntityClass() {
+        return CustomerOrder.class;
     }
 
-    @Test
-    public void testSaveCustomerOrder() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
+    @Override
+    protected CustomerOrder getModel() {
         CustomerOrder customerOrder = new CustomerOrder();
-        customerOrder.setPerson(session.find(Person.class, 1L));
-        customerOrder.setDateCreated(LocalDate.now());
-        customerOrder.setOrderStatus(OrderStatus.CREATED);
-        session.saveOrUpdate(customerOrder);
-        OrderItem orderItem1 = new OrderItem(customerOrder, session.find(Product.class, 1L), 3);
-        OrderItem orderItem2 = new OrderItem(customerOrder, session.find(Product.class, 2L), 1);
-        OrderItem orderItem3 = new OrderItem(customerOrder, session.find(Product.class, 3L), 5);
-        session.saveOrUpdate(orderItem1);
-        session.saveOrUpdate(orderItem2);
-        session.saveOrUpdate(orderItem3);
-        customerOrder.getOrderItems().add(orderItem1);
-        customerOrder.getOrderItems().add(orderItem2);
-        customerOrder.getOrderItems().add(orderItem3);
-        session.saveOrUpdate(customerOrder);
-
-        CustomerOrder saveCustomerOrder = session.find(CustomerOrder.class, 1L);
-        Assert.assertEquals(saveCustomerOrder.getOrderItems().size(), 3);
-
-        transaction.commit();
-        session.close();
-    }
-
-    @AfterClass
-    public static void finish() {
-        SESSION_FACTORY.close();
+        customerOrder.setOrderStatus(OrderStatus.CLOSED);
+        customerOrder.setDateClosing(LocalDate.of(2011,03,03));
+        customerOrder.setDateCreated(LocalDate.of(2011,03,01));
+        customerOrder.setPerson(new Person());
+        return new CustomerOrder();
     }
 }

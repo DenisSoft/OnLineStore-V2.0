@@ -14,32 +14,23 @@ import java.util.Set;
 /**
  * Created by Dzianis on 01.06.2017.
  */
-public class PersonTest {
+public class PersonTest extends BaseTest<Person> {
 
-    private static SessionFactory SESSION_FACTORY;
-    private static Logger LOGGER = Logger.getLogger(PersonTest.class);
-
-    @BeforeClass
-    public static void init() {
-
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        PersonTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
+    @Override
+    protected Class<Person> getEntityClass() {
+        return Person.class;
     }
 
-    @Test
-    public void testSavePerson() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Person savedPerson = session.find(Person.class, 1L);
-        Assert.assertEquals(savedPerson.getFirstName(), "Максим");
-
-        transaction.commit();
-        session.close();
-    }
-
-    @AfterClass
-    public static void finish() {
-        SESSION_FACTORY.close();
+    @Override
+    protected Person getModel() {
+        Person person = new Person();
+        person.setGroups(Groups.USER);
+        person.setPhone("=375296849032");
+        person.setAddress(new Address());
+        person.setPassword("1");
+        person.setEmail("bf@bk.ru");
+        person.setLastName("Bodrov");
+        person.setFirstName("Danila");
+        return new Person();
     }
 }

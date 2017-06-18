@@ -1,6 +1,10 @@
 package ru.belitavitex.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "products")
+//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Category extends BaseEntityWithName{
 
     public Category(String name) {

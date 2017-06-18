@@ -5,41 +5,29 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.belitavitex.Config;
+import ru.belitavitex.dao.CategoryDao;
 import ru.belitavitex.util.CategoryTestDataImporter;
+
+import java.util.HashSet;
 
 /**
  * Created by Dzianis on 01.06.2017.
  */
-public class CategoryTest {
+public class CategoryTest extends BaseTest<Category>{
 
-    private static SessionFactory SESSION_FACTORY;
-    private static Logger LOGGER = Logger.getLogger(PersonTest.class);
-
-    @BeforeClass
-    public static void init() {
-
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        CategoryTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
+    @Override
+    protected Class<Category> getEntityClass() {
+        return Category.class;
     }
 
-    @Test
-    public void testSaveCategory() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Category savedCategory = session.find(Category.class, 1L);
-        Assert.assertEquals(savedCategory.getName(), "Бальзамы");
-
-        transaction.commit();
-        session.close();
-    }
-
-    @AfterClass
-    public static void finish() {
-        SESSION_FACTORY.close();
+    @Override
+    protected Category getModel() {
+        Category category = new Category();
+        category.setName("Shampoos");
+        category.setProducts(new HashSet<>());
+        return category;
     }
 }

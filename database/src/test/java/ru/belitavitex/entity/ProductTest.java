@@ -15,32 +15,20 @@ import ru.belitavitex.util.ProductTestDataImporter;
 /**
  * Created by Dzianis on 02.06.2017.
  */
-public class ProductTest {
+public class ProductTest  extends BaseTest<Product>{
 
-    private static SessionFactory SESSION_FACTORY;
-    private static Logger LOGGER = Logger.getLogger(PersonTest.class);
-
-    @BeforeClass
-    public static void init() {
-
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        ProductTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
+    @Override
+    protected Class<Product> getEntityClass() {
+        return Product.class;
     }
 
-    @Test
-    public void testSaveProduct() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        Product savedProduct = session.find(Product.class, 1L);
-        Assert.assertEquals(savedProduct.getName(), "Бальзам для жирных волос");
-
-        transaction.commit();
-        session.close();
-    }
-
-    @AfterClass
-    public static void finish() {
-        SESSION_FACTORY.close();
+    @Override
+    protected Product getModel() {
+        Product product = new Product();
+        product.setName("NBA");
+        product.setDescription("Super");
+        product.setResidue(100);
+        product.setPrice(9);
+        return product;
     }
 }

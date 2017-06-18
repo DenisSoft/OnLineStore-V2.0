@@ -2,56 +2,68 @@ package ru.belitavitex.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.stereotype.Repository;
 import ru.belitavitex.entity.Person;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 
 /**
  * Created by Dzianis on 09.04.2017.
  */
-public class PersonDao {
-    private static final Object LOCK = new Object();
-    private static PersonDao INSTANCE = null;
+@Repository
+public class PersonDao extends BaseDao<Person>{
 
-    public static PersonDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (LOCK) {
-                if (INSTANCE == null) {
-                    INSTANCE = new PersonDao();
-                }
-            }
-        }
-        return INSTANCE;
+    public PersonDao(){
+        super(Person.class);
     }
 
-    public static List<Person> getAll(Session session) {
-        return session.createQuery("from Person", Person.class).getResultList();
-    }
+    public List<Person> getPage(int maxResults, int firstResult) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
 
-    public static List<Person> getPage(Session session, int maxResults, int firstResult) {
-        return session.createQuery("from Person", Person.class)
+        List<Person> result = session.createQuery("from Person", Person.class)
                 .setMaxResults(maxResults)
                 .setFirstResult(firstResult)
                 .getResultList();
+
+        transaction.commit();
+        session.close();
+        return result;
     }
 
-    public static Long getCount(Session session) {
-        return session.createQuery("select count(p) from Person p ", Long.class)
+    public Long getCount() {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Long result = session.createQuery("select count(p) from Person p ", Long.class)
                 .getSingleResult();
+
+        transaction.commit();
+        session.close();
+        return result;
     }
 
-    public Person findAllByEmailPassword(Session session, String email, String password) {
-        return session.createQuery("select p from Person p where password = :password and email = :email", Person.class)
-                .setParameter("password", password)
-                .setParameter("email", email)
-                .getSingleResult();
-    }
-
-    public static Session getSession(){
-            return new Configuration().configure().buildSessionFactory().openSession();
+    public Person findByEmailAndPassword(String email, String password) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Person result = null;
+        try {
+            result = session.createQuery
+                    ("select p from Person p where password = :password and email = :email", Person.class)
+                    .setParameter("password", password)
+                    .setParameter("email", email)
+                    .getSingleResult();
+        }catch (NoResultException e){}
+        finally {
+            transaction.commit();
+            session.close();
+            return result;
+        }
     }
 }
 
