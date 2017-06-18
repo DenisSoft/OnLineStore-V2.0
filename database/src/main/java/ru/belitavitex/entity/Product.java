@@ -15,14 +15,6 @@ import java.util.Set;
 @AllArgsConstructor
 public class Product extends BaseEntityWithName{
 
-    public Product(String name, String description, int price, int residue, Category category) {
-        super(name);
-        this.description = description;
-        this.price = price;
-        this.residue = residue;
-        this.category = category;
-    }
-
     @Getter
     @Setter
     @Column(name = "description")
@@ -46,7 +38,7 @@ public class Product extends BaseEntityWithName{
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     private Category category;
 
     @ManyToMany(mappedBy = "products")

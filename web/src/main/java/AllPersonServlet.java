@@ -1,4 +1,6 @@
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import ru.belitavitex.Config;
 import ru.belitavitex.service.PersonService;
 
 import javax.servlet.RequestDispatcher;
@@ -19,7 +21,8 @@ public class AllPersonServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("person", PersonService.getInstance().getAll());
+        PersonService personService = new PersonService();
+        req.setAttribute("person", personService.getAll());
         RequestDispatcher requestDispatcher
                 = getServletContext().getRequestDispatcher("/WEB-INF/jsp/all-person.jsp");
         requestDispatcher.forward(req, resp);

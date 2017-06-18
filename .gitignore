@@ -2,7 +2,4 @@
 hibernate-minimal-configuration.iml
 log4j.log
 target/
-database/src/test/resources/hibernate-configuration
-database/target/
-service/target/
-web/target/
+*.iml

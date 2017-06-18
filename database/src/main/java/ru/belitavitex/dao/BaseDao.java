@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import ru.belitavitex.entity.BaseEntity;
 import ru.belitavitex.entity.Person;
 
@@ -14,10 +16,15 @@ import java.util.List;
 /**
  * Created by Dzianis on 12.06.2017.
  */
+@Repository
 public abstract class BaseDao<T extends BaseEntity> {
 
-    public static final SessionFactory SESSION_FACTORY =
-            new Configuration().configure().buildSessionFactory();
+    @Autowired
+    SessionFactory sessionFactory;
+
+    public BaseDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     private Class<T> entityClass;
 
@@ -26,7 +33,7 @@ public abstract class BaseDao<T extends BaseEntity> {
     }
 
     public List<T> findAll() {
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         CriteriaBuilder cb = session.getCriteriaBuilder();
@@ -40,7 +47,7 @@ public abstract class BaseDao<T extends BaseEntity> {
     }
 
     public T findOne(Long id) {
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         T result = null;
         try {
@@ -56,7 +63,7 @@ public abstract class BaseDao<T extends BaseEntity> {
     }
 
     public void delete(T entity){
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         if(entity != null){
@@ -68,7 +75,7 @@ public abstract class BaseDao<T extends BaseEntity> {
     }
 
     public <S extends T> S save(S entity){
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         session.saveOrUpdate(entity);

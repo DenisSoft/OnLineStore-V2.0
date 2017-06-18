@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.stereotype.Repository;
 import ru.belitavitex.entity.Person;
 
 import javax.persistence.NoResultException;
@@ -14,27 +15,15 @@ import java.util.List;
 /**
  * Created by Dzianis on 09.04.2017.
  */
+@Repository
 public class PersonDao extends BaseDao<Person>{
-
-    private static PersonDao INSTANCE = null;
-
-    public static PersonDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (PersonDao.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new PersonDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
 
     public PersonDao(){
         super(Person.class);
     }
 
     public List<Person> getPage(int maxResults, int firstResult) {
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         List<Person> result = session.createQuery("from Person", Person.class)
@@ -48,7 +37,7 @@ public class PersonDao extends BaseDao<Person>{
     }
 
     public Long getCount() {
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         Long result = session.createQuery("select count(p) from Person p ", Long.class)
@@ -60,7 +49,7 @@ public class PersonDao extends BaseDao<Person>{
     }
 
     public Person findByEmailAndPassword(String email, String password) {
-        Session session = SESSION_FACTORY.openSession();
+        Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Person result = null;
         try {

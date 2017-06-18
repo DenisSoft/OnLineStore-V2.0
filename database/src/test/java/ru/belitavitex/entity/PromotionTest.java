@@ -17,42 +17,20 @@ import java.time.LocalDate;
 /**
  * Created by Dzianis on 08.06.2017.
  */
-public class PromotionTest {
+public class PromotionTest extends BaseTest<Promotion>{
 
-    private static SessionFactory SESSION_FACTORY;
-    private static Logger LOGGER = Logger.getLogger(PersonTest.class);
-
-    @BeforeClass
-    public static void init() {
-
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
-        ProductTestDataImporter.getInstance().importTestData(SESSION_FACTORY);
+    @Override
+    protected Class<Promotion> getEntityClass() {
+        return Promotion.class;
     }
 
-    @Test
-    public void testSavePromotion() {
-        Session session = SESSION_FACTORY.openSession();
-        Transaction transaction = session.beginTransaction();
-
+    @Override
+    protected Promotion getModel() {
         Promotion promotion = new Promotion();
-        promotion.setDateStart(LocalDate.of(2017, 8, 4));
-        promotion.setDateEnd(LocalDate.of(2017, 8, 5));
-        promotion.setName("Черная пятница! Скидки 30%!");
-        promotion.getProducts().add(session.find(Product.class, 1L));
-        promotion.getProducts().add(session.find(Product.class, 2L));
-        promotion.getProducts().add(session.find(Product.class, 3L));
-        promotion.setDiscount(30);
-        Long id = (Long) session.save(promotion);
-
-        Promotion savePromotion = session.find(Promotion.class, id);
-        Assert.assertEquals(savePromotion.getName(), "Черная пятница! Скидки 30%!");
-
-        transaction.commit();
-        session.close();
-    }
-
-    @AfterClass
-    public static void finish() {
-        SESSION_FACTORY.close();
+        promotion.setName("New Year");
+        promotion.setDateStart(LocalDate.of(2011,12,20));
+        promotion.setDateEnd(LocalDate.of(2012,01,03));
+        promotion.setDiscount(99);
+        return new Promotion();
     }
 }

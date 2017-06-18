@@ -2,32 +2,22 @@ package ru.belitavitex.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Repository;
 import ru.belitavitex.entity.Category;
 import ru.belitavitex.entity.Product;
 
 /**
  * Created by Dzianis on 07.06.2017.
  */
+
 public class ProductTestDataImporter {
-    private static ProductTestDataImporter INSTANCE;
 
-    private ProductTestDataImporter() {
-    }
+    public static void importTestData(SessionFactory sessionFactory) {
 
-    public static ProductTestDataImporter getInstance() {
-        if (INSTANCE == null) {
-            synchronized (ProductTestDataImporter.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new ProductTestDataImporter();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
-    public void importTestData(SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
-        CategoryTestDataImporter.getInstance().importTestData(sessionFactory);
+        CategoryTestDataImporter.importTestData(sessionFactory);
 
         Product balm = saveProduct(session, "Бальзам для жирных волос",
                 "Легчайшая формула бальзама, не содержащая масел, " +
@@ -48,9 +38,14 @@ public class ProductTestDataImporter {
         session.close();
     }
 
-    private Product saveProduct(Session session, String name, String description, int price,
-                                int residue, Category category) {
-        Product product = new Product(name, description, price, residue, category);
+    private static Product saveProduct(Session session, String name, String description, int price,
+                                       int residue, Category category) {
+        Product product = new Product();
+        product.setName(name);
+        product.setDescription(description);
+        product.setPrice(price);
+        product.setResidue(residue);
+        product.setCategory(category);
         session.saveOrUpdate(product);
         return product;
     }
