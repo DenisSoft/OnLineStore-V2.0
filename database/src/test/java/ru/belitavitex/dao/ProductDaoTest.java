@@ -1,12 +1,16 @@
 package ru.belitavitex.dao;
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.belitavitex.dao.common.BaseDao;
 import ru.belitavitex.entity.Category;
 import ru.belitavitex.entity.Product;
-import ru.belitavitex.util.CategoryTestDataImporter;
 import ru.belitavitex.util.ProductTestDataImporter;
+
 import java.util.List;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 /**
@@ -14,10 +18,8 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class ProductDaoTest extends BaseDaoTest<Product>{
-
-    private static final ProductDao PRODUCT_DAO = CONTEXT.getBean(ProductDao.class);
-    private static final CategoryDao CATEGORY_DAO = CONTEXT.getBean(CategoryDao.class);
-    private BaseDao<Product> dao = PRODUCT_DAO;
+    @Autowired
+    private BaseDao<Product> dao;
 
     @Override
     protected BaseDao<Product> getDao() {
@@ -29,28 +31,51 @@ public class ProductDaoTest extends BaseDaoTest<Product>{
         return new Product();
     }
 
+    @Autowired
+    private ProductDao productDao;
+
+    @Autowired
+    private CategoryDao categoryDao;
+
+    @Autowired
+    private ProductTestDataImporter productTestDataImporter;
+
+
+    @Test
+    public void testFindByName() {
+        productTestDataImporter.importTestData();
+        Product result = productDao.findByName("Бальзам для жирных волос");
+        assertNotNull(result);
+    }
+
+    @Test
+    public void testFindByCategory() {
+        productTestDataImporter.importTestData();
+        Category category = categoryDao.findAll().get(0);
+        List<Product> result = productDao.findByCategory(category);
+        assertEquals(result.size(), 3);
+    }
+
     @Test
     public void testGetPage() {
-        ProductTestDataImporter.importTestData(sessionFactory);
-        CategoryTestDataImporter.importTestData(sessionFactory);
-        Category category = CATEGORY_DAO.findOne(1L);
-        List<Product> result = PRODUCT_DAO.getPage(category,5, 0);
-        assertEquals(result.size(), 1);
+        productTestDataImporter.importTestData();
+        Category category = categoryDao.findAll().get(0);
+        List<Product> result = productDao.getPage(category,5, 0);
+        assertEquals(result.size(), 3);
     }
 
     @Test
     public void testGetCount() {
-        ProductTestDataImporter.importTestData(sessionFactory);
-        Long result = PRODUCT_DAO.getCount();
+        productTestDataImporter.importTestData();
+        Long result = productDao.getCount();
         assertEquals(result, 3L, 0.00001);
     }
 
     @Test
     public void testGetCountInCategory() {
-        ProductTestDataImporter.importTestData(sessionFactory);
-        CategoryTestDataImporter.importTestData(sessionFactory);
-        Category category = CATEGORY_DAO.findOne(1L);
-        Long result = PRODUCT_DAO.getCountInCategory(category);
-        assertEquals(result, 1L, 0.00001);
+        productTestDataImporter.importTestData();
+        Category category = categoryDao.findAll().get(0);
+        Long result = productDao.getCountInCategory(category);
+        assertEquals(result, 3L, 0.00001);
     }
 }

@@ -1,16 +1,5 @@
 package ru.belitavitex.entity;
 
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.*;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.belitavitex.Config;
-import ru.belitavitex.dao.CategoryDao;
-import ru.belitavitex.util.CategoryTestDataImporter;
-
 import java.util.HashSet;
 
 /**

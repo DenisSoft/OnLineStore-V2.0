@@ -2,7 +2,10 @@ package ru.belitavitex.entity;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Created by Dzianis on 01.06.2017.

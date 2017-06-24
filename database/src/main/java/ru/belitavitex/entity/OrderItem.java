@@ -1,6 +1,7 @@
 package ru.belitavitex.entity;
 
 import lombok.*;
+
 import javax.persistence.*;
 
 /**
@@ -19,13 +20,13 @@ public class OrderItem extends BaseEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "customer_order_id", nullable = false)
+    @JoinColumn(name = "customer_order_id")
     @Getter
     @Setter
     private CustomerOrder customerOrder;
 
     @OneToOne
-    @JoinColumn(name="product_id", nullable = false)
+    @JoinColumn(name="product_id")
     @Getter
     @Setter
     private Product product;

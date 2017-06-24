@@ -1,4 +1,5 @@
-<%@ include file="jstl-connect.jsp"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <body>
 <div class="container">
@@ -29,7 +30,7 @@
             </td>
         </tr>
         </thead>
-        <c:forEach var="person" items="${requestScope.person}" >
+        <c:forEach var="person" items="${persons}" >
             <tr bgcolor="#CCFFCC">
                 <td valign=top>
                         ${person.id}

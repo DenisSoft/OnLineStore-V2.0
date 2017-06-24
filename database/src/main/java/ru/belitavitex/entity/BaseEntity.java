@@ -1,5 +1,7 @@
 package ru.belitavitex.entity;
+
 import lombok.*;
+
 import javax.persistence.*;
 
 /**

@@ -1,10 +1,11 @@
 package ru.belitavitex.dao;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import ru.belitavitex.dao.common.BaseDao;
+import ru.belitavitex.entity.CustomerOrder;
 import ru.belitavitex.entity.Person;
 import ru.belitavitex.util.PersonTestDataImporter;
 
@@ -19,8 +20,8 @@ import static org.junit.Assert.assertEquals;
 
 public class PersonDaoTest extends BaseDaoTest<Person> {
 
-    private static final PersonDao PERSON_DAO = CONTEXT.getBean(PersonDao.class);
-    private BaseDao<Person> dao = PERSON_DAO;
+    @Autowired
+    private BaseDao<Person> dao;
 
     @Override
     protected BaseDao<Person> getDao() {
@@ -32,24 +33,30 @@ public class PersonDaoTest extends BaseDaoTest<Person> {
         return new Person();
     }
 
+    @Autowired
+    private PersonDao personDao;
+
+    @Autowired
+    private PersonTestDataImporter personTestDataImporter;
+
     @Test
     public void testGetPage() {
-        PersonTestDataImporter.importTestData(sessionFactory);
-        List<Person> result = PERSON_DAO.getPage(2, 1);
+        personTestDataImporter.importTestData();
+        List<Person> result = personDao.getPage(2, 1);
         assertEquals(result.size(), 2);
     }
 
     @Test
     public void testGetCount() {
-        PersonTestDataImporter.importTestData(sessionFactory);
-        Long result = PERSON_DAO.getCount();
+        personTestDataImporter.importTestData();
+        Long result = personDao.getCount();
         assertEquals(result, 3L, 0.00001);
     }
 
     @Test
     public void testFindByEmailAndPassword() {
-        PersonTestDataImporter.importTestData(sessionFactory);
-        Person result = PERSON_DAO.findByEmailAndPassword("mironov@bk.ru", "2");
+        personTestDataImporter.importTestData();
+        Person result = personDao.findByEmailAndPassword("mironov@bk.ru", "2");
         assertEquals(result.getFirstName(), "Егор");
     }
 }

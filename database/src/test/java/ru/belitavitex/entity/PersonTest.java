@@ -1,16 +1,5 @@
 package ru.belitavitex.entity;
 
-import org.apache.log4j.Logger;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.junit.*;
-import ru.belitavitex.util.PersonTestDataImporter;
-import ru.belitavitex.util.ProductTestDataImporter;
-
-import java.util.Set;
-
 /**
  * Created by Dzianis on 01.06.2017.
  */

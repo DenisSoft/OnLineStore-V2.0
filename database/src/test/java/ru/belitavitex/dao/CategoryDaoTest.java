@@ -1,5 +1,8 @@
 package ru.belitavitex.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.belitavitex.dao.common.BaseDao;
+import ru.belitavitex.entity.Article;
 import ru.belitavitex.entity.Category;
 
 
@@ -11,7 +14,8 @@ import ru.belitavitex.entity.Category;
 
 public class CategoryDaoTest extends BaseDaoTest<Category>{
 
-    private BaseDao<Category> dao = CONTEXT.getBean(CategoryDao.class);
+    @Autowired
+    private BaseDao<Category> dao;
 
     @Override
     protected BaseDao<Category> getDao() {

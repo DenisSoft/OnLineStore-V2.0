@@ -1,15 +1,10 @@
 package ru.belitavitex.dao;
 
-import org.springframework.stereotype.Repository;
-import ru.belitavitex.entity.*;
+import ru.belitavitex.dao.common.BaseDao;
+import ru.belitavitex.entity.Article;
 
 /**
- * Created by Dzianis on 12.06.2017.
+ * Created by Dzianis on 22.06.2017.
  */
-@Repository
-public class ArticleDao extends BaseDao<Article> {
-
-    public ArticleDao(){
-        super(Article.class);
-    }
+public interface ArticleDao extends BaseDao<Article> {
 }

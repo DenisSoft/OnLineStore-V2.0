@@ -1,7 +1,5 @@
 package ru.belitavitex.entity;
 
-import java.util.HashSet;
-
 /**
  * Created by Dzianis on 18.06.2017.
  */

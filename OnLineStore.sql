@@ -28,7 +28,7 @@ CREATE TABLE persons (
 
 CREATE TABLE products (
   id          INT AUTO_INCREMENT,
-  name        VARCHAR(50),
+  name        VARCHAR(100),
   description VARCHAR(1000),
   category_id INT,
   price       DOUBLE,
@@ -159,11 +159,46 @@ VALUES ('Егор', 'Миронов', 'mironov@bk.ru', '2', 2, '+375296849032', 
 INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups)
 VALUES ('Елена', 'Хмель', 'hemel@bk.ru', '3', 3, '+375296849033', 'ADMIN');
              
-            
+INSERT INTO categories (name) VALUES ('Шампуни');            
         
+INSERT INTO categories (name) VALUES ('Бальзамы');
+
+INSERT INTO categories (name) VALUES ('Маски');    
+
+INSERT INTO categories (name) VALUES ('Спреи, тоники, лосьоны');            
+        
+INSERT INTO categories (name) VALUES ('Сыворотки');
+
+INSERT INTO categories (name) VALUES ('Гели для душа');  
+
+INSERT INTO products (name, description, category_id, price, residue) 
+VALUES ('SPA – шампунь Минеральный', 'Шампунь прекрасно очищает, не вымывая естественную защиту волос, 
+       питает кожу головы. Помогает оградить волосы от вредного воздействия окружающей среды. Насыщает 
+       целебными минералами Мертвого моря волосы, нормализует рН-баланс кожи головы. Питает и укрепляет 
+       корни волос. Эффективно останавливает преждевременное выпадение волос, повышает их прочность и 
+       эластичность.', 1, 5, 100);       
              
-             
-            
-                   
+INSERT INTO products (name, description, category_id, price, residue) 
+VALUES ('Бальзам – кондиционер Минеральный для всех типов волос', 'Бальзам- кондиционер интенсивно 
+       питает и увлажняет кожу головы, повышает эластичность и упругость волос. Насыщает волосы минералами 
+       и микроэлементами Мертвого моря. Нормализует рН-баланс и усиливает кровообращение в клетках кожи головы, 
+       предотвращая ослабление волос.', 2, 7, 100); 
+       
+INSERT INTO products (name, description, category_id, price, residue) 
+VALUES ('Маска грязевая против выпадения волос', 'Маска оказывает активное восстанавливающее и 
+       укрепляющее действие на волосы. Насыщает их целебными минералами Мертвого моря, усиливает 
+       кровообращение и поступление питательных веществ в кожу головы. Активизирует обменные процессы, 
+       улучшает структуру и внешний вид волос, восстанавливает их эластичность и предупреждает 
+       ломкость.', 3, 5, 100);        
+       
+ INSERT INTO customer_orders (person_id, date_created, orderstatus) 
+ VALUES (1, '2017-01-03', 'CREATED');      
+       
+ INSERT INTO order_items (customer_order_id, product_id, quantity) 
+ VALUES (1, 2, 5);        
+       
+       
+
+          
                         
  
