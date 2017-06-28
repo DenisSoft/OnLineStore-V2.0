@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Carrois Gothic SC';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Carrois Gothic SC Regular'), local('CarroisGothicSC-Regular'), url(http://fonts.gstatic.com/s/carroisgothicsc/v6/bVp4nhwFIXU-r3LqUR8DSNce8QJcbznVYyCETTx3XZM.woff) format('woff');
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Oswald Regular'), local('Oswald-Regular'), url(http://fonts.gstatic.com/s/oswald/v13/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
+}

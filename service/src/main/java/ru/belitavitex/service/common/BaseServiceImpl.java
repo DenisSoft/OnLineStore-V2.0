@@ -19,11 +19,12 @@ import java.util.List;
 @Transactional
 public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
+    @Autowired
     protected abstract BaseDao<T> getBaseDao();
 
     @Override
-    public void save(T entity) {
-        getBaseDao().save(entity);
+    public Long save(T entity) {
+       return getBaseDao().save(entity);
     }
 
     @Override

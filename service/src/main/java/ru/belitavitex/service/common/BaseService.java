@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface BaseService<T extends BaseEntity> {
 
-    void save(T entity);
+    Long save(T entity);
     List<T> findAll();
     void delete(T entity);
     T findOne(Long id);

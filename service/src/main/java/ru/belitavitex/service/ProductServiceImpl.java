@@ -1,6 +1,8 @@
 package ru.belitavitex.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.belitavitex.dao.CategoryDao;
 import ru.belitavitex.dao.ProductDao;
 import ru.belitavitex.dao.common.BaseDao;
@@ -13,6 +15,8 @@ import java.util.List;
 /**
  * Created by Dzianis on 24.06.2017.
  */
+@Service
+@Transactional
 public class ProductServiceImpl extends BaseServiceImpl<Product> implements ProductService{
 
     private final ProductDao productDao;

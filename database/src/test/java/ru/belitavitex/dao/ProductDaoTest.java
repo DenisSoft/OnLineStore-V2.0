@@ -18,6 +18,7 @@ import static org.junit.Assert.assertNotNull;
  */
 
 public class ProductDaoTest extends BaseDaoTest<Product>{
+
     @Autowired
     private BaseDao<Product> dao;
 

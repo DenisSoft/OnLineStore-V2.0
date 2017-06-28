@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Dzianis on 18.06.2017.
  */
 public class CustomerOrderDaoTest extends BaseDaoTest<CustomerOrder> {
+
     @Autowired
     private BaseDao<CustomerOrder> dao;
 

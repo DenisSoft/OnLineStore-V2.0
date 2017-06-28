@@ -5,8 +5,6 @@ import ru.belitavitex.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import ru.belitavitex.config.ServiceConfig;
 
-import javax.xml.ws.Service;
-
 /**
  * Created by Dzianis on 24.06.2017.
  */

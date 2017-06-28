@@ -23,9 +23,14 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @GetMapping(path = "/AllPerson")
-    public String showRegistrationPage(Model model) {
-        model.addAttribute("persons", personService.findAll() );
-        return "all-person";
+//    @GetMapping(path = "/AllPerson")
+//    public String showRegistrationPage(Model model) {
+//        model.addAttribute("persons", personService.findAll() );
+//        return "all-person";
+//    }
+
+    @GetMapping(path = "/Home")
+    public String showHomePage(Model model) {
+        return "home";
     }
 }

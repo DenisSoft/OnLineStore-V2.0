@@ -9,6 +9,7 @@ import ru.belitavitex.entity.Review;
  * Created by Dzianis on 18.06.2017.
  */
 public class ReviewDaoTest extends BaseDaoTest<Review> {
+
     @Autowired
     private BaseDao<Review> dao;
 
