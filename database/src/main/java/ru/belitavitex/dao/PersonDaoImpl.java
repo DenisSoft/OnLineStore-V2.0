@@ -31,11 +31,10 @@ public class PersonDaoImpl extends BaseDaoImpl<Person> implements PersonDao {
         return result;
     }
 
-    public Person findByEmailAndPassword(String email, String password) {
+    public Person findByEmail(String email) {
         Session session = getSessionFactory().getCurrentSession();
         List<Person> result = session.createQuery
-                ("select p from Person p where password = :password and email = :email", Person.class)
-                .setParameter("password", password)
+                ("select p from Person p where email = :email", Person.class)
                 .setParameter("email", email)
                 .getResultList();
         return result.get(0);

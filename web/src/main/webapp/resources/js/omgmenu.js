@@ -1,12 +1,3 @@
-/**
-*	@version	$Id: omgmenu.jq.js 46 2013-04-11 09:48:03Z linhnt $
-*	@package	OMG Template Framework for Joomla! 2.5
-*	@subpackage	mod_omgmenu
-*	@copyright	Copyright (C) 2009 - 2013 Omegatheme. All rights reserved.
-*	@license	GNU/GPL version 2, or later
-*	@website:	http://www.omegatheme.com
-*	Support Forum - http://www.omegatheme.com/forum/
-*/
 
 // dropdown menu for desktop layout
 ;(function($){

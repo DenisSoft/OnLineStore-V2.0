@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Registration</title>
+    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
+
+    <link rel="stylesheet" href="../../resources/css/k2.css" th:href="@{resources/css/k2.css}" type="text/css"
+          media="screen">
+    <link rel="stylesheet" href="../../resources/css/bootstrap.css" th:href="@{resources/css/bootstrap.css}"
+          type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/bootstrap-responsive.css"
+          th:href="@{resources/css/bootstrap-responsive.css}" type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/template.css" th:href="@{resources/css/template.css}"
+          type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/preset-style-1.css" th:href="@{resources/css/preset-style-1.css}"
+          type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/no-space.css" th:href="@{resources/css/no-space.css}"
+          type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/css.css" th:href="@{resources/css/css.css}" type="text/css"
+          media="screen">
+    <link rel="stylesheet" href="../../resources/css/all.css" th:href="@{resources/css/all.css}" type="text/css"
+          media="screen">
+    <link rel="stylesheet" href="../../resources/css/vmsite-ltr.css" th:href="@{resources/css/vmsite-ltr.css}"
+          type="text/css" media="screen">
+    <link rel="stylesheet" href="../../resources/css/omgmenu.css" th:href="@{resources/css/omgmenu.css}" type="text/css"
+          media="screen">
+    <link rel="stylesheet" href="../../resources/css/omgmenu_mobile.css" th:href="@{resources/css/omgmenu_mobile.css}"
+          type="text/css" media="screen">
+
+    <script src="../../resources/js/analytics.js" th:src="@{resources/js/analytics.js}" async=""
+            media="screen"></script>
+    <script src="../../resources/js/mootools-core.js" th:src="@{resources/js/mootools-core.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/core.js" th:src="@{resources/js/core.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/jquery_002.js" th:src="@{resources/js/jquery_002.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/k2.js" th:src="@{resources/js/k2.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/respond.js" th:src="@{resources/js/respond.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/jquery.js" th:src="@{resources/js/jquery.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/jquery-noconflict.js" th:src="@{resources/js/jquery-noconflict.js}"
+            type="text/javascript" media="screen"></script>
+    <script src="../../resources/js/bootstrap.js" th:src="@{resources/js/bootstrap.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/caption.js" th:src="@{resources/js/caption.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/otscript.js" th:src="@{resources/js/otscript.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/all.js" th:src="@{resources/js/all.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/omgmenu.js" th:src="@{resources/js/omgmenu.js}" type="text/javascript"
+            media="screen"></script>
+    <script src="../../resources/js/validate.js" th:src="@{resources/js/validate.js}" type="text/javascript"
+            media="screen"></script>
+</head>
+<body>
+<div id="mod-101" class="ot-mod-outer standard module floatright custom_login ">
+    <style> body {
+        background: #f9f3e2;
+    }</style>
+    <div class="ot-mod-inner clearfix">
+        <div class="mod-content clearfix">
+            <div style="clear: both;"></div>
+            <div  class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" style="display: block; height: 800px;">
+                <div class="modal-header" style="height: 769px;">
+                    <a href="/home"><img src="../../resources/images/logo_login.png" alt="" border="0"
+                                         th:src="@{resources/images/logo_login.png}"></a>
+                    <div  style="height: 500px;">
+                        <div class="ot-tabs">
+                            <ul class="nav nav-tabs">
+                                <li><a href="/login">Вход</a></li>
+                                <li class="active"><a href="" data-toggle="tab">Регистрация</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active">
+                                    <p th:if="${message}" class="custom_style_error custom_desc_error">
+                                        <span th:text="${message}"></span></p>
+                                    <form th:action="@{/Registration}" method="post" th:object="${person}">
+                                        <table class="table">
+                                            <tr>
+                                                <td style="border-top-color:#fff">
+                                                   <div class="control-group">
+                                                      <div class="control-label">
+                                                          <label th:for="firstName" class="hasTip required" aria-invalid="false">
+                                                                Имя<span class="star">&nbsp;*</span></label>
+                                                      </div>
+                                                      <div class="controls">
+                                                            <input type="text" th:field="*{firstName}" class="required" size="30"
+                                                                 aria-required="true" required="required" aria-invalid="false">
+                                                      </div>
+                                                   </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                        <div class="control-label">
+                                                           <label th:for="lastName" class="hasTip required "  aria-invalid="false">
+                                                             Фамилия<span class="star">&nbsp;*</span></label>
+                                                        </div>
+                                                        <div class="controls">
+                                                            <input type="text" th:field="*{lastName}" class="required" size="30"
+                                                                aria-required="true" required="required" aria-invalid="false">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                             </tr>
+                                            <tr>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                        <div class="control-label">
+                                                             <label th:for="email" class="hasTip required "  aria-invalid="false">
+                                                                  E-mail<span class="star">&nbsp;*</span></label>
+                                                        </div>
+                                                    <div class="controls">
+                                                        <input type="email" th:field="*{email}" class="validate-email required
+                                                              invalid" size="30" aria-required="true" required="required" aria-invalid="false">
+                                                    </div>
+                                                 </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                       <div class="control-label">
+                                                          <label th:for="password" class="validate-password"  aria-invalid="false">
+                                                              Пароль<span class="star">&nbsp;*</span></label>
+                                                       </div>
+                                                       <div class="controls">
+                                                           <input type="password" th:field="*{password}" class="required " size="30"
+                                                                aria-required="true" required="required" aria-invalid="false">
+                                                       </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                       <label th:for="phone">Телефон</label>
+                                                          <div class="controls">
+                                                              <input type="text" th:field="*{phone}" size="30">
+                                                          </div>
+                                                    </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                       <label th:for="address.zip">Индекс</label>
+                                                           <div class="controls">
+                                                               <input type="text" th:field="*{address.zip}" size="30">
+                                                           </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                       <label th:for="address.country">Страна</label>
+                                                          <div class="controls">
+                                                             <input type="text" th:field="*{address.country}" size="30">
+                                                          </div>
+                                                    </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group">
+                                                        <label th:for="address.city">Город</label>
+                                                            <div class="controls">
+                                                                <input type="text" th:field="*{address.city}" size="30">
+                                                            </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr style="border-top-color:#fff">
+                                                <td style="border-top-color:#fff">
+                                                   <div class="control-group">
+                                                       <label th:for="address.street">Улица</label>
+                                                          <div class="controls">
+                                                             <input type="text" th:field="*{address.street}" size="30">
+                                                          </div>
+                                                   </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                   <div class="control-group">
+                                                       <label th:for="address.house">Дом</label>
+                                                          <div class="controls">
+                                                             <input type="number" th:field="*{address.house}" size="30">
+                                                          </div>
+                                                   </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border-top-color:#fff">
+                                                   <div class="control-group">
+                                                      <label th:for="address.building">Корпус</label>
+                                                         <div class="controls">
+                                                             <input type="number" th:field="*{address.building}" size="20">
+                                                         </div>
+                                                   </div>
+                                                </td>
+                                                <td style="border-top-color:#fff">
+                                                    <div class="control-group" >
+                                                       <label th:for="address.apartment">Квартира</label>
+                                                           <div class="controls">
+                                                               <input type="number" th:field="*{address.apartment}" size="20">
+                                                           </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <p class="ot-submit">
+                                           <input type="submit" name="Submit" class="btn btn-primary" value="Зарегистрироваться">
+                                        </p>
+                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div></div>
+</body>
+</html>

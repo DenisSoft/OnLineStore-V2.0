@@ -54,9 +54,9 @@ public class PersonDaoTest extends BaseDaoTest<Person> {
     }
 
     @Test
-    public void testFindByEmailAndPassword() {
+    public void testFindByEmail() {
         personTestDataImporter.importTestData();
-        Person result = personDao.findByEmailAndPassword("mironov@bk.ru", "2");
+        Person result = personDao.findByEmail("mironov@bk.ru");
         assertEquals(result.getFirstName(), "Егор");
     }
 }

@@ -1,12 +1,4 @@
-/**
-*	@version	$Id: vmsite-ltr.css 9 2013-03-21 09:47:13Z linhnt $
-*	@package	OMG Responsive Template for Joomla! 2.5
-*	@subpackage	overide css file for virtuemart 2
-*	@copyright	Copyright (C) 2009 - 2013 Omegatheme. All rights reserved.
-*	@license	GNU/GPL version 2, or later
-*	@website:	http://www.omegatheme.com
-*	Support Forum - http://www.omegatheme.com/forum/
-*/
+
 .clr{clear:both;overflow:hidden;}
 .general-bg,input.custom-attribute,input.quantity-input,.manufacturer-product-link a,a.ask-a-question,input.vm-default,a.product-details,a.details,div.details,button.default{background:#e8e8e8 url(../images/vmgeneral/backgrounds.png) top repeat-x;border:solid #CAC9C9 1px;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;color:#777;text-decoration:none;padding:5px 5px 4px;}
 span.custom-variant-inputbox input.custom-attribute:hover,span.quantity-box input.quantity-input:hover,input.vm-default:hover,span.quantity-box input.quantity-input:hover,.ask-a-question-view input.counter:hover,.ask-a-question-view input#email:hover,table.user-details input:hover,a.ask-a-question:hover,a.details:hover,div.details:hover,a.product-details:hover,button.default:hover{background:#e8e8e8 url(../images/vmgeneral/backgrounds.png) repeat-x;background-position:0 -40px;color:#000;text-decoration:none;}

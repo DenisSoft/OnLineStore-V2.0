@@ -56,9 +56,9 @@ public class PersonServiceTest extends BaseServiceTest<Person> {
     }
 
     @Test
-    public void testFindByEmailAndPassword() {
+    public void testFindByEmail() {
         personTestDataImporter.importTestData();
-        Person result = personService.findByEmailAndPassword("mironov@bk.ru", "2");
+        Person result = personService.findByEmail("mironov@bk.ru");
         assertEquals(result.getFirstName(), "Егор");
     }
 }

@@ -24,6 +24,11 @@
       <artifactId>database</artifactId>
       <version>${project.version}</version>
     </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>4.2.3.RELEASE</version>
+      </dependency>
   </dependencies>
 
 </project>

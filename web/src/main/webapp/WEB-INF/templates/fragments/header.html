@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" th:fragment="header">
+    <style> body {
+        background: #f9f3e2;
+    }</style>
+    <div class="container">
+        <div class="oPosBlock row-fluid top1">
+
+            <div class="oPos top1-1 span4 visible-phone visible-tablet visible-desktop">
+                <div id="mod-48" class="ot-mod-outer standard module">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="custom">
+                                <div class="ot_logo"><a href="/home"><img
+                                        src="../../resources/images/logo.png" alt="" border="0"
+                                        th:src="@{resources/images/logo.png}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oPos top1-2 span8 visible-phone visible-tablet visible-desktop">
+                <div id="mod-98" class="ot-mod-outer standard module floatright">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="vmCartModule " id="vmCartModule98">
+                                <div class="vm_cart">
+		                            <span class="ico-cart">
+		                               <a href="/home">
+                                           <img src="../../resources/images/cart.png" alt="" border="0"></a>
+                                    </span>
+                                    <span class="total_products" th:text="#{header.cart.empty}">Корзина пуста</span>
+                                    <br>
+                                    <span class="show_cart">
+			                        <a href="/home" th:text="#{header.cart.show}">В корзину</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mod-101" class="ot-mod-outer standard module floatright custom_login">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div id="ot-login-popup-wrap">
+                                <span class="ot-welcome" th:text="#{header.welcome}">Добро пожаловать, </span>
+
+                                <p th:text="${account.number }"></p>
+
+                                <a href="/Logout" th:text="#{header.exit}">Выход</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mod-102" class="ot-mod-outer standard module Clearfix">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="custom Clearfix">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mod-103" class="ot-mod-outer standard module floatleft">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="custom floatleft">
+                                <div class="custom_top"><img src="../../resources/images/custom_top.png" alt=""
+                                                             border="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mod-104" class="ot-mod-outer standard module custom_top_menu">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <ul class="menu">
+
+                                <li class="item-527"><a href="?language=en_US">English</a>
+                                </li>
+                                <li class="item-531"><span class="separator">|</span></li>
+                                <li class="item-528"><a href="?language=ru_RU">Русский</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="oPosBlock row-fluid top2">
+            <div class="oPos top2-1 span12 visible-phone visible-tablet visible-desktop">
+                <div id="mod-100" class="ot-mod-outer standard module mainmenu">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="otmenu-wrapper otmenu-desk-wrapper visible-desktop"
+                                 id="otmenu-desk-wrapper-100">
+                                <div class="otmenu-wrapper-i">
+                                    <ul class="ot-menu ot-dropdown-100 menu ">
+
+                                        <li id="omi-435" class="ot-menu-item level1 current active first notColumn"
+                                            style="z-index:35000;">
+                                            <div><a class="item-link level1" href="/home">
+                                                <span class="item-text " th:text="#{header.home}">Главная</span></a>
+                                            </div>
+                                        </li>
+                                        <li id="omi-485" class="ot-menu-item level1 deeper hasChild notColumn"
+                                            style="z-index:34999;">
+                                            <div><a class="item-link level1"
+                                                    href="/home"><span
+                                                    class="item-text " th:text="#{header.products}">Товары</span></a>
+
+                                                <div class="submenu-wrap submenu-wrap-level1"
+                                                     style="width: 200px; margin: 0px; padding: 5px; left: auto; visibility: visible; display: none;">
+                                                    <div class="submenu-wrap-i">
+                                                        <div class="submenu-leftbg"></div>
+                                                        <div class="submenu-rightbg"></div>
+                                                        <div class="submenu-wrap-ii">
+                                                            <ul class="ot-menu child-menu">
+
+                                                                <li id="omi-486"
+                                                                    class="ot-menu-item level2 first notColumn"
+                                                                    style="z-index:34998;">
+                                                                    <div><a class="item-link level2"
+                                                                            href="/home">
+                                                                        <span class="item-text ">Шампуни</span></a>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="omi-487" class="ot-menu-item level2 notColumn"
+                                                                    style="z-index:34997;">
+                                                                    <div><a class="item-link level2"
+                                                                            href="/home">
+                                                                        <span class="item-text ">Бальзамы</span></a>
+                                                                    </div>
+                                                                </li>
+                                                                <li id="omi-488"
+                                                                    class="ot-menu-item level2 last notColumn"
+                                                                    style="z-index:34996;">
+                                                                    <div><a class="item-link level2"
+                                                                            href="/home">
+                                                                        <span class="item-text ">Маски</span></a>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="omi-498" class="ot-menu-item level1 notColumn" style="z-index:34961;">
+                                            <div><a class="item-link level1"
+                                                    href="/home">
+                                                <span class="item-text " th:text="#{header.magazine}">Журнал</span></a>
+                                            </div>
+                                        </li>
+                                        <li id="omi-499" class="ot-menu-item level1 notColumn" style="z-index:34960;">
+                                            <div><a class="item-link level1"
+                                                    href="/home">
+                                            <span class="item-text "
+                                                  th:text="#{header.aboutUs}">О предприятии</span></a></div>
+                                        </li>
+                                        <li id="omi-500" class="ot-menu-item level1 last notColumn"
+                                            style="z-index:34959;">
+                                            <div><a class="item-link level1"
+                                                    href="/home">
+                                                <span class="item-text " th:text="#{header.contact}">Контакты</span></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <script type="text/javascript">
+
+                                    jQuery(document).ready(function ($) {
+                                        $("ul.ot-dropdown-100").otmenu({
+                                            direction: 'ltr',
+                                            animation: {opacity: "show", height: "show"},
+                                            speed: 'normal'
+                                        });
+
+                                    });
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

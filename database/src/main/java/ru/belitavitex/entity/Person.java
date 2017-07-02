@@ -17,17 +17,6 @@ import java.util.Set;
 @AllArgsConstructor
 public class Person extends BaseEntity {
 
-//    public Person(String firstName, String lastName, String email, String password,
-//                  Address address, String phone, Groups groups) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.password = password;
-//        this.address = address;
-//        this.phone = phone;
-//        this.groups = groups;
-//    }
-
     @Getter
     @Setter
     @Column(name = "first_name")

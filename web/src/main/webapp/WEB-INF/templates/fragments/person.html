@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div th:fragment="persons">
+<br><br><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <table class="category table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th><strong>#</strong></th>
+                    <th><strong th:text="#{login.firstName}">ИМЯ</strong></th>
+                    <th><strong th:text="#{login.lastName}">ФАМИЛИЯ</strong></th>
+                    <th><strong th:text="#{login.address}">АДРЕС</strong></th>
+                    <th><strong th:text="#{login.email}">E-Mail</strong></th>
+                    <th><strong th:text="#{login.phone}">ТЕЛЕФОН</strong></th>
+                    <th><strong></strong>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <tr th:each="person : ${persons}" th:class="${person}">
+                    <td th:text="${person.id}"></td>
+                    <td th:text="${person.firstName}"></td>
+                    <td th:text="${person.lastName}"></td>
+                    <td>
+                        <span th:text="${person.address.zip} + ', '
+                        + ${person.address.country} + ', '
+                        + ${person.address.city} + ', '
+                        + ${person.address.street} + ', '
+                        + ${person.address.house} + '-'
+                        + ${person.address.building} + '-'
+                        + ${person.address.apartment}">
+                        </span>
+                    </td>
+                    <td th:text="${person.email}"></td>
+                    <td th:text="${person.phone}"></td>
+                    <td th:text="${person.password}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div></div>
+
+</body>
+</html>

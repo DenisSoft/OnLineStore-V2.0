@@ -12,5 +12,5 @@ import java.util.List;
 public interface PersonDao extends BaseDao<Person> {
     List<Person> getPage(int maxResults, int firstResult);
     Long getCount();
-    Person findByEmailAndPassword(String email, String password);
+    Person findByEmail(String email);
 }

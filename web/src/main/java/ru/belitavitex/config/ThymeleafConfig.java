@@ -2,9 +2,11 @@ package ru.belitavitex.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.UrlTemplateResolver;
 
 /**
  * Created by Dzianis on 22.06.2017.
@@ -36,4 +38,12 @@ public class ThymeleafConfig {
         resolver.setCharacterEncoding("UTF-8");
         return resolver;
     }
+
+//    @Bean
+//    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
+//        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+//        templateEngine.setTemplateResolver(templateResolver);
+//        templateEngine.addDialect(new SpringSecurityDialect());
+//        return templateEngine;
+//    }
 }

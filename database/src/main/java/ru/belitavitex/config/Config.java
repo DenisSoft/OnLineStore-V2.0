@@ -83,4 +83,6 @@ public class Config {
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
+
+
 }

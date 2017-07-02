@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+<body>
+<div id="mod-101" class="ot-mod-outer standard module floatright custom_login ">
+    <style> body {
+        background: #f9f3e2;
+    }</style>
+ <div class="ot-mod-inner clearfix">
+   <div class="mod-content clearfix">
+     <div style="clear: both;"></div>
+       <div  class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" style="display: block;">
+	     <div class="modal-header">
+             <a href="/home"><img src="../../resources/images/logo_login.png" alt="" border="0"
+                     th:src="@{resources/images/logo_login.png}"></a>
+	     <div class="modal-body">
+   		<div class="ot-tabs">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="" data-toggle="tab">Вход</a></li>
+				<li><a href="/Registration">Регистрация</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active">
+                    <p th:if="${loginError}" class="custom_style_error custom_desc_error">
+                        Ошибка ввода E-mail или пароля!</p>
+                    <p th:if="${success}" class="custom_style_success custom_desc_success">
+                        <span th:text="${success}"></span></p>
+					<form action="/login" method="post" >
+								<p class="form-login-username">
+									<label for="username">E-mail</label>
+									<input id="username" type="text" name="username" class="input-medium" size="18">
+								</p>
+								<p class="form-login-password">
+									<label for="password">Пароль</label>
+									<input id="password" type="password" name="password" class="input-medium" size="18">
+								</p>
+								<p class="form-login-remember">
+									<input id="modlgn-remember" type="checkbox" name="remember" value="yes">
+									<label for="modlgn-remember">Запомнить</label>
+								</p>
+								<p class="ot-submit">
+									<input type="submit" name="Submit" class="btn btn-primary" value="Войти">
+								</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div></div></div></div>
+</body>
+</html>

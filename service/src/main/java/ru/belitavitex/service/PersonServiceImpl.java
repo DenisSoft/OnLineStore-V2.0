@@ -43,7 +43,7 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     }
 
     @Override
-    public Person findByEmailAndPassword(String email, String password) {
-        return personDao.findByEmailAndPassword(email, password);
+    public Person findByEmail(String email) {
+        return personDao.findByEmail(email);
     }
 }

@@ -1,13 +1,12 @@
 package ru.belitavitex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import ru.belitavitex.entity.Groups;
 import ru.belitavitex.entity.Person;
 import ru.belitavitex.service.PersonService;
 import ru.belitavitex.service.PersonServiceImpl;
@@ -23,14 +22,40 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-//    @GetMapping(path = "/AllPerson")
-//    public String showRegistrationPage(Model model) {
-//        model.addAttribute("persons", personService.findAll() );
-//        return "all-person";
-//    }
+    @ModelAttribute("person")
+    public Person person() {
+        return new Person();
+    }
 
-    @GetMapping(path = "/Home")
-    public String showHomePage(Model model) {
-        return "home";
+    @GetMapping(path = "/AllPersons")
+    public String showPersonPage(Model model) {
+        model.addAttribute("persons", personService.findAll() );
+        return "all-persons";
+    }
+
+    @GetMapping(path = "/DeletePerson")
+    public String deletePerson(Model model) {
+        model.addAttribute("persons", personService.findAll() );
+        return "all-persons";
+    }
+
+    @GetMapping(path = "/Registration")
+    public String showSavePersonPage() {
+        return "registration";
+    }
+
+    @PostMapping(path = "/Registration")
+    public String savePerson(Person person, Model model) {
+        person.setGroups(Groups.USER);
+        try {
+            personService.save(person);
+            model.addAttribute("success", "Дорогой "
+                    + person.fullName() + " , вы успешно зарегистрировались!");
+            return "login";
+        }catch (Exception e) {
+            model.addAttribute("person", new Person());
+            model.addAttribute("message", "Что-то пошло не так! Попробуйте позже!");
+            return "registration";
+        }
     }
 }

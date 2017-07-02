@@ -68,4 +68,15 @@ public class Address extends BaseEntity{
     @Getter
     @Setter
     private Person person;
+
+    @Override
+    public String toString() {
+        return (zip == null ? "" : (zip + " "))
+                + (country == null ? "" : (country + " "))
+                + (city == null ? "" : (city + " "))
+                + (street == null ? "" : (street + " "))
+                + (house == null ? "" : (house + "-"))
+                + (building == null ? "" : (building + "-"))
+                + (apartment == null ? "" : apartment);
+    }
 }
