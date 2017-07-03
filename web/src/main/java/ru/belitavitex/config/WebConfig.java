@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan(basePackages = "ru.belitavitex")
 @EnableWebMvc
-@Import(value = {InternationalizationConfig.class, ThymeleafConfig.class})
+@Import(value = {InternationalizationConfig.class, ThymeleafConfig.class, MvcConfig.class})
 public class WebConfig {
 
 }

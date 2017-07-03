@@ -151,13 +151,16 @@ INSERT INTO addresses (country, city, street, house, building, apartment, zip)
 VALUES ('Беларусь', 'Минск', 'Рокоссовского', 4, 4, 435, '220047');
 
 INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups)
-VALUES ('Максим', 'Долгорукий', 'dolgorukiy@bk.ru', '1', 1, '+375297589843', 'USER');
+VALUES ('Максим', 'Долгорукий', 'dolgorukiy@bk.ru',
+        '$2a$10$Phur7SCGVKtvIR36k9U6xOKMbSHIPhLb9ucsObyl3w4zTcs.KR2Je', 1, '+375297589843', 'USER');
 
 INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups)
-VALUES ('Егор', 'Миронов', 'mironov@bk.ru', '2', 2, '+375296849032', 'USER');
+VALUES ('Егор', 'Миронов', 'mironov@bk.ru',
+        '$2a$10$VuPKE7tMyplAeVa1URxQr.zzn.hFiVejC/82MRhA7wolu..n7uTHm', 2, '+375296849032', 'USER');
 
 INSERT INTO persons (first_name, last_Name, email, password, addresses_id, phone, groups)
-VALUES ('Елена', 'Хмель', 'hemel@bk.ru', '3', 3, '+375296849033', 'ADMIN');
+VALUES ('Елена', 'Хмель', 'hemel@bk.ru',
+        '$2a$10$a9gG/qSo3xEmxBNMth3jceWai6n7A/gNhrvWT9XEfq5VUd0xioY7a', 3, '+375296849033', 'ADMIN');
              
 INSERT INTO categories (name) VALUES ('Шампуни');            
         

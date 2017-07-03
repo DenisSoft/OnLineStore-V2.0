@@ -33,10 +33,10 @@ public class PersonController {
         return "all-persons";
     }
 
-    @GetMapping(path = "/DeletePerson")
-    public String deletePerson(Model model) {
-        model.addAttribute("persons", personService.findAll() );
-        return "all-persons";
+    @GetMapping(path = "/DeletePerson/{id}")
+    public String deletePerson(Model model, @PathVariable("id") long id) {
+        personService.delete(id);
+        return "redirect:/AllPersons";
     }
 
     @GetMapping(path = "/Registration")

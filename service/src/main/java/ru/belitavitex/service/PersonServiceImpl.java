@@ -1,6 +1,7 @@
 package ru.belitavitex.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.belitavitex.dao.CategoryDao;
@@ -27,9 +28,17 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
         this.personDao = personDao;
     }
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     protected BaseDao<Person> getBaseDao() {
         return personDao;
+    }
+
+    public Long save(Person person){
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
+        return personDao.save(person);
     }
 
     @Override
@@ -45,5 +54,12 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
     @Override
     public Person findByEmail(String email) {
         return personDao.findByEmail(email);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Person person = new Person();
+        person.setId(id);
+        personDao.delete(person);
     }
 }

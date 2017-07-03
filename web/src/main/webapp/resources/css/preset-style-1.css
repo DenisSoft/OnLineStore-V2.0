@@ -1,8 +1,10 @@
 
 body{
 	color:#242424;
-	background-color: #FFFFFF;
+	background-color: #f9f3e2;
 }
+
+
 .body-bg{
 	background-image: url("../resources/images/body_bg.png");
 	background-repeat: repeat;

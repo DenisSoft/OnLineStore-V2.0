@@ -2,73 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <title>Registration</title>
-    <meta http-equiv="content-type" content="text/html" charset="UTF-8">
-
-    <link rel="stylesheet" href="../../resources/css/k2.css" th:href="@{resources/css/k2.css}" type="text/css"
-          media="screen">
-    <link rel="stylesheet" href="../../resources/css/bootstrap.css" th:href="@{resources/css/bootstrap.css}"
-          type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/bootstrap-responsive.css"
-          th:href="@{resources/css/bootstrap-responsive.css}" type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/template.css" th:href="@{resources/css/template.css}"
-          type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/preset-style-1.css" th:href="@{resources/css/preset-style-1.css}"
-          type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/no-space.css" th:href="@{resources/css/no-space.css}"
-          type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/css.css" th:href="@{resources/css/css.css}" type="text/css"
-          media="screen">
-    <link rel="stylesheet" href="../../resources/css/all.css" th:href="@{resources/css/all.css}" type="text/css"
-          media="screen">
-    <link rel="stylesheet" href="../../resources/css/vmsite-ltr.css" th:href="@{resources/css/vmsite-ltr.css}"
-          type="text/css" media="screen">
-    <link rel="stylesheet" href="../../resources/css/omgmenu.css" th:href="@{resources/css/omgmenu.css}" type="text/css"
-          media="screen">
-    <link rel="stylesheet" href="../../resources/css/omgmenu_mobile.css" th:href="@{resources/css/omgmenu_mobile.css}"
-          type="text/css" media="screen">
-
-    <script src="../../resources/js/analytics.js" th:src="@{resources/js/analytics.js}" async=""
-            media="screen"></script>
-    <script src="../../resources/js/mootools-core.js" th:src="@{resources/js/mootools-core.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/core.js" th:src="@{resources/js/core.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/jquery_002.js" th:src="@{resources/js/jquery_002.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/k2.js" th:src="@{resources/js/k2.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/respond.js" th:src="@{resources/js/respond.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/jquery.js" th:src="@{resources/js/jquery.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/jquery-noconflict.js" th:src="@{resources/js/jquery-noconflict.js}"
-            type="text/javascript" media="screen"></script>
-    <script src="../../resources/js/bootstrap.js" th:src="@{resources/js/bootstrap.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/caption.js" th:src="@{resources/js/caption.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/otscript.js" th:src="@{resources/js/otscript.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/all.js" th:src="@{resources/js/all.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/omgmenu.js" th:src="@{resources/js/omgmenu.js}" type="text/javascript"
-            media="screen"></script>
-    <script src="../../resources/js/validate.js" th:src="@{resources/js/validate.js}" type="text/javascript"
-            media="screen"></script>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
 </head>
 <body>
-<div id="mod-101" class="ot-mod-outer standard module floatright custom_login ">
-    <style> body {
-        background: #f9f3e2;
-    }</style>
+<div class="ot-mod-outer standard module floatright custom_login ">
     <div class="ot-mod-inner clearfix">
         <div class="mod-content clearfix">
             <div style="clear: both;"></div>
-            <div  class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" style="display: block; height: 800px;">
-                <div class="modal-header" style="height: 769px;">
+            <div  class="modal hide fade in" tabindex="-1" role="dialog" aria-hidden="false" style="display: block; height: 770px;">
+                <div class="modal-header" style="height: 750px;">
                     <a href="/home"><img src="../../resources/images/logo_login.png" alt="" border="0"
                                          th:src="@{resources/images/logo_login.png}"></a>
-                    <div  style="height: 500px;">
+                    <div  style="height: 670px;">
                         <div class="ot-tabs">
                             <ul class="nav nav-tabs">
                                 <li><a href="/login">Вход</a></li>

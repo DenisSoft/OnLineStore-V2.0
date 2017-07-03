@@ -55,4 +55,11 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     public Long getCountInCategory(Category category) {
         return productDao.getCountInCategory(category);
     }
+
+    @Override
+    public void delete(Long id) {
+        Product product = new Product();
+        product.setId(id);
+        productDao.delete(product);
+    }
 }

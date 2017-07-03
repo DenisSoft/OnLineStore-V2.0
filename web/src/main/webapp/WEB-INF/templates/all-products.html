@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>All Persons</title>
+    <title>All products</title>
     <div th:replace="fragments/styles-connect :: styles-connect"></div>
 </head>
-
 <body>
 <div th:include="fragments/header :: header"></div>
 <br>
@@ -34,7 +33,7 @@
                     <td th:align="center">
 
 
-                        <a th:href="@{/DeletePerson/{id}(id=${person.id})}">
+                        <a th:href="@{/DeletePerson/{id}(id=${person.id})}"> <!-- ?id=${person.id}">-->
                             <button class="btn-small btn-danger" type="button">Удалить</button></a>
 
                     </td>
