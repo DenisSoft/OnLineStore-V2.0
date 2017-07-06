@@ -32,8 +32,8 @@ public abstract class BaseDaoTest<T extends BaseEntity> {
     @Test
     public void testFindById() {
         T model = getModel();
-        Long id = getDao().save(model);
-
+        getDao().save(model);
+        Long id =  model.getId();
         T entity = getDao().findOne(id);
         assertNotNull(entity);
     }

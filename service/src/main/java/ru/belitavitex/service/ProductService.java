@@ -15,4 +15,5 @@ public interface ProductService extends BaseService<Product> {
     List<Product> getPage(Category category, int maxResults, int firstResult);
     Long getCount();
     Long getCountInCategory(Category category);
+    void delete(Long id);
 }

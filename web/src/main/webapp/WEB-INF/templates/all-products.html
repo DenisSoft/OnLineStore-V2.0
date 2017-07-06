@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
+    <title>All products</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
 </head>
 <body>
-<div th:fragment="persons">
-<br><br><br><br><br><br><br><br><br><br><br>
-    <div class="container">
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
     <div class="oPosBlock row-fluid middle2">
         <div class="ot-content">
+            <legend>Все продукты в категории.</legend>
             <table class="category table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
@@ -18,35 +20,30 @@
                     <th><strong th:text="#{login.address}">АДРЕС</strong></th>
                     <th><strong th:text="#{login.email}">E-Mail</strong></th>
                     <th><strong th:text="#{login.phone}">ТЕЛЕФОН</strong></th>
-                    <th><strong></strong>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
-
-
                 <tr th:each="person : ${persons}" th:class="${person}">
                     <td th:text="${person.id}"></td>
                     <td th:text="${person.firstName}"></td>
                     <td th:text="${person.lastName}"></td>
-                    <td>
-                        <span th:text="${person.address.zip} + ', '
-                        + ${person.address.country} + ', '
-                        + ${person.address.city} + ', '
-                        + ${person.address.street} + ', '
-                        + ${person.address.house} + '-'
-                        + ${person.address.building} + '-'
-                        + ${person.address.apartment}">
-                        </span>
-                    </td>
+                    <td th:text="${person.address}"></td>
                     <td th:text="${person.email}"></td>
                     <td th:text="${person.phone}"></td>
-                    <td th:text="${person.password}"></td>
+                    <td th:align="center">
+
+
+                        <a th:href="@{/DeletePerson/{id}(id=${person.id})}"> <!-- ?id=${person.id}">-->
+                            <button class="btn-small btn-danger" type="button">Удалить</button></a>
+
+                    </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div></div>
-
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

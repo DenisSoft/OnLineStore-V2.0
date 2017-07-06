@@ -24,8 +24,8 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     }
 
     @Override
-    public Long save(T entity) {
-        return (Long) sessionFactory.getCurrentSession().save(entity);
+    public void save(T entity) {
+        sessionFactory.getCurrentSession().saveOrUpdate(entity);
     }
 
     @Override

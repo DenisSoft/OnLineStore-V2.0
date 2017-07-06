@@ -1,13 +1,8 @@
 package ru.belitavitex.service.common;
 
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.GenericTypeResolver;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.belitavitex.dao.CategoryDao;
 import ru.belitavitex.dao.common.BaseDao;
-import ru.belitavitex.dao.common.BaseDaoImpl;
 import ru.belitavitex.entity.BaseEntity;
 
 import java.util.List;
@@ -23,8 +18,8 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     protected abstract BaseDao<T> getBaseDao();
 
     @Override
-    public Long save(T entity) {
-       return getBaseDao().save(entity);
+    public void save(T entity) {
+       getBaseDao().save(entity);
     }
 
     @Override

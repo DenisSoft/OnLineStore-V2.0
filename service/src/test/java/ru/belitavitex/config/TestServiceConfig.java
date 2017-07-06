@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Import;
  * Created by Dzianis on 13.06.2017.
  */
 @Configuration
-@Import(ServiceConfig.class)
+@Import(value = {ServiceConfig.class, SecurityConfig.class, ThymeleafConfig.class})
 @ComponentScan(basePackages = {"ru.belitavitex.util"})
 public class TestServiceConfig {
     @Value("${jdbc.url}")

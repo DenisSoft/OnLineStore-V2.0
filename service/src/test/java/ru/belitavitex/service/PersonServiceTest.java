@@ -14,6 +14,8 @@ import ru.belitavitex.util.PersonTestDataImporter;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 
 /**
@@ -32,7 +34,9 @@ public class PersonServiceTest extends BaseServiceTest<Person> {
 
     @Override
     protected Person getModel() {
-        return new Person();
+        Person person = new Person();
+        person.setPassword("1");
+        return person;
     }
 
     @Autowired

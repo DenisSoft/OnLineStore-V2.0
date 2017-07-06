@@ -29,8 +29,8 @@ public abstract class BaseServiceTest<T extends BaseEntity> {
     @Test
     public void testFindById() {
         T model = getModel();
-        Long id = getService().save(model);
-
+        getService().save(model);
+        Long id = model.getId();
         T entity = getService().findOne(id);
         assertNotNull(entity);
     }
@@ -39,10 +39,9 @@ public abstract class BaseServiceTest<T extends BaseEntity> {
     public void testDelete() {
         T model = getModel();
         getService().save(model);
-
+        Long id = model.getId();
         getService().delete(model);
-
-        T entity = getService().findOne(1L);
+        T entity = getService().findOne(id);
         assertNull(entity);
     }
 
@@ -50,12 +49,10 @@ public abstract class BaseServiceTest<T extends BaseEntity> {
     public void testfindAll() {
         List<T> entity = getService().findAll();
         assertEquals(entity.size(), 0);
-
         T model1 = getModel();
         getService().save(model1);
         T model2 = getModel();
         getService().save(model2);
-
         entity = getService().findAll();
         assertEquals(entity.size(), 2);
     }
@@ -64,15 +61,10 @@ public abstract class BaseServiceTest<T extends BaseEntity> {
     public void testSave() {
         List<T> entity = getService().findAll();
         assertEquals(entity.size(), 0);
-
         T model = getModel();
         getService().save(model);
-
         entity = getService().findAll();
         assertEquals(entity.size(), 1);
     }
 
-    @After
-    public void finish() {
-    }
 }

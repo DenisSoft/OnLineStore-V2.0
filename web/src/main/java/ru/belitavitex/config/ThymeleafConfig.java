@@ -6,7 +6,6 @@ import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templateresolver.UrlTemplateResolver;
 
 /**
  * Created by Dzianis on 22.06.2017.
@@ -39,11 +38,11 @@ public class ThymeleafConfig {
         return resolver;
     }
 
-//    @Bean
-//    public SpringTemplateEngine templateEngine(TemplateResolver templateResolver) {
-//        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-//        templateEngine.setTemplateResolver(templateResolver);
-//        templateEngine.addDialect(new SpringSecurityDialect());
-//        return templateEngine;
-//    }
+    @Bean
+    public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver templateResolver) {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver);
+        templateEngine.addDialect(new SpringSecurityDialect());
+        return templateEngine;
+    }
 }

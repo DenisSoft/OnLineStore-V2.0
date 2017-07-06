@@ -9,4 +9,5 @@ import ru.belitavitex.service.common.BaseService;
  */
 
 public interface CategoryService extends BaseService<Category>{
+    boolean delete (Long id);
 }

@@ -27,16 +27,16 @@ public class PersonController {
         return new Person();
     }
 
-    @GetMapping(path = "/AllPersons")
+    @GetMapping(path = "/Admin/AllPersons")
     public String showPersonPage(Model model) {
         model.addAttribute("persons", personService.findAll() );
         return "all-persons";
     }
 
-    @GetMapping(path = "/DeletePerson")
-    public String deletePerson(Model model) {
-        model.addAttribute("persons", personService.findAll() );
-        return "all-persons";
+    @GetMapping(path = "/Admin/DeletePerson/{id}")
+    public String deletePerson(Model model, @PathVariable("id") long id) {
+        personService.delete(id);
+        return "redirect:/Admin/AllPersons";
     }
 
     @GetMapping(path = "/Registration")

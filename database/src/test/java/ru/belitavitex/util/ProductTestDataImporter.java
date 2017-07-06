@@ -1,7 +1,5 @@
 package ru.belitavitex.util;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import ru.belitavitex.dao.CategoryDao;
@@ -30,25 +28,25 @@ public class ProductTestDataImporter {
                 "Легчайшая формула бальзама, не содержащая масел, " +
                  "специально разработана для максимально эффективного ухода " +
                  "за жирными и быстро загрязняющимися волосами.",
-                6, 100, category);
+                6, category);
         Product shampoos = saveProduct("SPA – шампунь Минеральный",
                 "Шампунь прекрасно очищает, не вымывая " +
                 "естественную защиту волос, питает кожу головы. Помогает " +
                 "оградить волосы от вредного воздействия окружающей среды.",
-                5, 100,category);
+                5, category);
         Product showerGels = saveProduct("ГЕЛЬ ДЛЯ ДУША АКВА-ДРЕНАЖ",
                 "Инновационная формула геля для душа обеспечивает " +
                  "эффективное очищение кожи и подготовку к антицеллюлитным " +
-                 "процедурам.", 9, 100, category);
+                 "процедурам.", 9, category);
     }
 
     private Product saveProduct(String name, String description, int price,
-                                int residue, Category category) {
+                                Category category) {
         Product product = new Product();
         product.setName(name);
         product.setDescription(description);
         product.setPrice(price);
-        product.setResidue(residue);
+        product.setResidue(100);
         product.setCategory(category);
         productDao.save(product);
         return product;

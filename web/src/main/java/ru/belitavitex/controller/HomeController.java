@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import ru.belitavitex.entity.User;
+import ru.belitavitex.service.CategoryService;
 import ru.belitavitex.service.PersonService;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Dzianis on 29.06.2017.
@@ -14,12 +17,12 @@ import ru.belitavitex.service.PersonService;
 @Controller
 public class HomeController {
 
+    @Autowired
+    CategoryService categoryService;
+
     @GetMapping(path = "/")
-    public String showHomePage() {
-        User user = (User) SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
-        System.out.println(user.getFullName());
+    public String showHomePage(HttpSession session) {
+        session.setAttribute("categories", categoryService.findAll());
         return "home";
     }
 }

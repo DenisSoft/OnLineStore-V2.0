@@ -45,7 +45,6 @@ public class PersonTestDataImporter {
         person.setAddress(address);
         person.setPhone(phone);
         person.setGroups(groups);
-
         personService.save(person);
         return person;
     }

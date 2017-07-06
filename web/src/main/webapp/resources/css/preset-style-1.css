@@ -1,16 +1,18 @@
 
 body{
 	color:#242424;
-	background-color: #FFFFFF;
+	background-color: #f9f3e2;
 }
+
+
 .body-bg{
-	background-image: url("../resources/images/body_bg.png");
+	background-image: url("../../resources/images/body_bg.png");
 	background-repeat: repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
 }
 .wrapper{
-	background-image: url("../resources/images/top_bg.png");
+	background-image: url("../../resources/images/top_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 50% 0;
@@ -48,7 +50,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 
 /* --- CUSTOM TOP1 --- */
 .top1 .vmCartModule .ico-cart{
-	background-image: url("../resources/images/cart.png");
+	background-image: url("../../resources/images/cart.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -95,7 +97,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 	background: none;
 }
 .mainmenu .otmenu-desk-wrapper .ot-menu li.level1{	
-	background-image: url("../resources/images/sep_menu.png");
+	background-image: url("../../resources/images/sep_menu.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -147,14 +149,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 	background: none;
 }
 .mainmenu .otmenu-desk-wrapper .ot-menu.child-menu li.hasChild.notColumn > div > a{
-	background-image: url("../resources/images/arrow.png");
+	background-image: url("../../resources/images/arrow.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 98% 50%;
 }
 .mainmenu .otmenu-desk-wrapper .ot-menu.child-menu li.hasChild.notColumn.active > div > a,
 .mainmenu .otmenu-desk-wrapper .ot-menu.child-menu li.hasChild.notColumn.hover > div > a{
-	background-image: url("../resources/images/arrow_w.png");
+	background-image: url("../../resources/images/arrow_w.png");
 }
 /* CUSTOM SEARCH */
 .module.accordion .search .form-search{
@@ -188,7 +190,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 
 /* ---* CUSTOM MIDDLE BLOCK *--- */
 .oMiddleBlock1{
-	background-image: url("../resources/images/banner_bg.png");
+	background-image: url("../../resources/images/banner_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 100% 0;
@@ -225,7 +227,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 .breadcrumb > li > .divider{
 	background-attachment: scroll;
 	background-color: transparent;
-	background-image: url("../resources/images/arrow.png");
+	background-image: url("../../resources/images/arrow.png");
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 }
@@ -248,7 +250,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 }
 .oMainBlock .module h3.mod-title:before,
 .oMainBlock .module h3.mod-title:after{
-	background-image: url("../resources/images/title_bg.png");
+	background-image: url("../../resources/images/title_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -265,7 +267,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a {
 }
 .oMainBlock .module.style2 h3.mod-title:before,
 .oMainBlock .module.style2 h3.mod-title:after{
-	background-image: url("../resources/images/title_bg2.png");
+	background-image: url("../../resources/images/title_bg2.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -368,7 +370,7 @@ ul.userItemTags li a:hover,
 }
 .k2ItemsBlock .ot-single .moduleItemOverlay a.moduleItemReadMore{
 	background-color: #629E1E;
-	background-image: url("../resources/images/readmore.png");
+	background-image: url("../../resources/images/readmore.png");
 	background-repeat: no-repeat;
 	background-position: 92% 50%;
 }
@@ -379,7 +381,7 @@ ul.userItemTags li a:hover,
 	background-color: #E7E1D8;
 }
 .accordion-group.k2ItemBlock .accordion-heading .icon-plus-minus{
-	background-image: url("../resources/images/plus.png");
+	background-image: url("../../resources/images/plus.png");
 	background-position: 0 0;
 }
 .accordion-group.k2ItemBlock.active .accordion-heading,
@@ -391,7 +393,7 @@ ul.userItemTags li a:hover,
 	background-color: #6E8A02;
 }
 .accordion-group.k2ItemBlock.active .accordion-heading .icon-plus-minus{
-	background-image: url("../resources/images/minus.png");
+	background-image: url("../../resources/images/minus.png");
 	background-position: 0 0;
 }
 .accordion-group.k2ItemBlock .accordion-heading .moduleItemTitle{
@@ -405,7 +407,7 @@ ul.userItemTags li a:hover,
 a.k2ReadMore{
 	background-color: #629E1E;
 	background-attachment: scroll;
-	background-image: url("../resources/images/arrow_s_w.png");
+	background-image: url("../../resources/images/arrow_s_w.png");
 	background-position: 100% 50%;
 	background-repeat: no-repeat;
 	color: #FFFFFF;
@@ -463,34 +465,34 @@ a.k2ReadMore:hover{
 	color: #FFFFFF;
 	border-color: #5B951F #73A82F #689E27 #4C8815;
 	background-color: #629E1E;
-	background-image: url("../resources/images/add_cart_bg.png"), -moz-linear-gradient(top, #73AA2E 0, #508C16 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -webkit-gradient(left top, left bottom, color-stop(0%, #73AA2E), color-stop(100%, #508C16));
-	background-image: url("../resources/images/add_cart_bg.png"), -webkit-linear-gradient(top, #73AA2E 0, #508C16 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -o-linear-gradient(top, #73AA2E 0, #508C16 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -ms-linear-gradient(top, #73AA2E 0, #508C16 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), linear-gradient(to bottom, #73AA2E 0, #508C16 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -moz-linear-gradient(top, #73AA2E 0, #508C16 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -webkit-gradient(left top, left bottom, color-stop(0%, #73AA2E), color-stop(100%, #508C16));
+	background-image: url("../../resources/images/add_cart_bg.png"), -webkit-linear-gradient(top, #73AA2E 0, #508C16 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -o-linear-gradient(top, #73AA2E 0, #508C16 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -ms-linear-gradient(top, #73AA2E 0, #508C16 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), linear-gradient(to bottom, #73AA2E 0, #508C16 100%);
 	background-attachment: scroll;
 	background-position: 100% 100%;
 	background-repeat: no-repeat;
 }
 .product .spacer .product-details:hover{
 	background-color: #457E04;
-	background-image: url("../resources/images/add_cart_bg.png"), -moz-linear-gradient(top, #578D07 0, #376C03 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -webkit-gradient(left top, left bottom, color-stop(0%, #578D07), color-stop(100%, #376C03));
-	background-image: url("../resources/images/add_cart_bg.png"), -webkit-linear-gradient(top, #578D07 0, #376C03 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -o-linear-gradient(top, #578D07 0, #376C03 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), -ms-linear-gradient(top, #578D07 0, #376C03 100%);
-	background-image: url("../resources/images/add_cart_bg.png"), linear-gradient(to bottom, #578D07 0, #376C03 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -moz-linear-gradient(top, #578D07 0, #376C03 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -webkit-gradient(left top, left bottom, color-stop(0%, #578D07), color-stop(100%, #376C03));
+	background-image: url("../../resources/images/add_cart_bg.png"), -webkit-linear-gradient(top, #578D07 0, #376C03 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -o-linear-gradient(top, #578D07 0, #376C03 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), -ms-linear-gradient(top, #578D07 0, #376C03 100%);
+	background-image: url("../../resources/images/add_cart_bg.png"), linear-gradient(to bottom, #578D07 0, #376C03 100%);
 	background-attachment: scroll;
 	background-position: 100% 100%;
 	background-repeat: no-repeat;
 }
 [class*="ie"] .product .spacer .product-details,
 [class*="ie"] .product .spacer .product-details:hover{
-	background-image: url("../resources/images/add_cart_bg.png");
+	background-image: url("../../resources/images/add_cart_bg.png");
 }
 .product .spacer .product-details:after{
-	background-image: url("../resources/images/title_bg.png");
+	background-image: url("../../resources/images/title_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -503,7 +505,7 @@ a.k2ReadMore:hover{
 .browse-view .row-fluid .product .spacer span.product-discount,
 .product .spacer span.product-discount{
 	color: #FFFFFF;
-	background-image: url("../resources/images/discount_bg.png");
+	background-image: url("../../resources/images/discount_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -597,7 +599,7 @@ span.addtocart-button input.addtocart-button{
 }
 span.addtocart-button:before,
 span.addtocart-button:after{
-	background-image: url("../resources/images/title_bg.png");
+	background-image: url("../../resources/images/title_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -692,13 +694,21 @@ span.addtocart-button input.notify-button:hover,
 	background-image: -o-linear-gradient(top, #3F6918 0, #122C05 100%);
 	background-image: -ms-linear-gradient(top, #3F6918 0, #122C05 100%);
 	background-image: linear-gradient(to bottom, #3F6918 0, #122C05 100%);
-	background-position: 0 0 relative;
+	background-position: 0 0;
     background-repeat: repeat;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
 }
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+	background-color: #21470A;
+}
+
+normalize.less:46
+ar
+
 .oFooterBlock .container{
 
 }
@@ -730,7 +740,7 @@ span.addtocart-button input.notify-button:hover,
 	background-image: linear-gradient(to bottom, #75A75C 0, #4A8134 100%);
 }
 .custom_social:after{
-	background-image: url("../resources/images/title_bg.png");
+	background-image: url("../../resources/images/title_bg.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -745,7 +755,7 @@ span.addtocart-button input.notify-button:hover,
 	background-image: linear-gradient(to bottom, #F0DB16 0, #C88C00 100%);
 }
 .custom_social:hover:after{
-	background-image: url("../resources/images/title_bg2.png");
+	background-image: url("../../resources/images/title_bg2.png");
 	background-repeat: no-repeat;
 	background-attachment: scroll;
 	background-position: 0 0;
@@ -764,7 +774,7 @@ span.addtocart-button input.notify-button:hover,
 a.readmore{
 	background-color: #629E1E;
 	background-attachment: scroll;
-	background-image: url("../resources/images/arrow_s_w.png");
+	background-image: url("../../resources/images/arrow_s_w.png");
 	background-position: 100% 50%;
 	background-repeat: no-repeat;
 	color: #FFFFFF;
@@ -778,13 +788,13 @@ a.readmore:hover{
 /* ---* CUSTOM ICONS *--- */
 .ico-bq-o{
 	background-attachment: scroll;
-	background-image: url("../resources/images/bq-o.png");
+	background-image: url("../../resources/images/bq-o.png");
 	background-position: 0 50%;
 	background-repeat: no-repeat;
 }
 .ico-bq-c{
 	background-attachment: scroll;
-	background-image: url("../resources/images/bq-c.png");
+	background-image: url("../../resources/images/bq-c.png");
 	background-position: 0 50%;
 	background-repeat: no-repeat;
 }
@@ -825,16 +835,16 @@ a.readmore:hover{
 	color: #000000;
 }
 .icon-prev-bold{
-	background: url("../resources/images/icon-prev-bold.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/icon-prev-bold.png") no-repeat scroll 50% 50% transparent;
 }
 .icon-next-bold{
-	background: url("../resources/images/icon-next-bold.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/icon-next-bold.png") no-repeat scroll 50% 50% transparent;
 }
 .icon-prev{
-	background: url("../resources/images/icon-prev.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/icon-prev.png") no-repeat scroll 50% 50% transparent;
 }
 .icon-next{
-	background: url("../resources/images/icon-next.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/icon-next.png") no-repeat scroll 50% 50% transparent;
 }
 .carousel-indicators li{
 	background-color: #CFCFCF;
@@ -857,9 +867,9 @@ a.readmore:hover{
 	background-color: #6E8A02;
 }
 .ot-slidenav .icon-prev{
-	background: url("../resources/images/arrow-prev-w.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/arrow-prev-w.png") no-repeat scroll 50% 50% transparent;
 }
 .ot-slidenav .icon-next{
-	background: url("../resources/images/arrow-next-w.png") no-repeat scroll 50% 50% transparent;
+	background: url("../../resources/images/arrow-next-w.png") no-repeat scroll 50% 50% transparent;
 }
 
