@@ -352,11 +352,4 @@ INSERT INTO articles (name, text, date_created, image)
        других помещениях с компьютерами и кондиционерами — в таких условиях кожа теряет много минералов и влаги. ', 
        '2017-07-10', 'summer.jpg');
 
-       
 
-DROP TABLE categories;
-DROP TABLE reviews;
-DROP TABLE articles;
-DROP TABLE persons;
-DROP TABLE products;
-SELECT * FROM categories;
