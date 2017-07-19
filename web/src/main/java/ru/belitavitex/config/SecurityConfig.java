@@ -48,7 +48,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-//                   .anyRequest()
                 .antMatchers("/Registration", "/resources/**", "/login", "/login-error")
                 .permitAll()
                 .antMatchers("/Admin/**")
@@ -68,48 +67,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .userDetailsService(userDetailsService);
     }
-
-
-//    private final UserDetailsService userDetailsService;
-//
-//    @Autowired
-//    public SecurityConfig(UserDetailsService userDetailsService) {
-//        this.userDetailsService = userDetailsService;
-//    }
-//
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests()
-//                .antMatchers("/home", "/login")
-//                    .permitAll()
-//                .antMatchers("/admin")
-//                    .hasAuthority("ADMIN")
-//                .anyRequest()
-//                    .authenticated()
-//            .and()
-//                .formLogin()
-//                .loginPage("/login")
-//                .loginProcessingUrl("/login")
-//                .defaultSuccessUrl("/home")
-//            .and()
-//                .logout()
-//                .logoutUrl("/logout")
-//                .logoutSuccessUrl("/login")
-//            .and()
-//                .csrf().disable();
-//
-//        http.userDetailsService(userDetailsService);
-
-//        User user = (User) SecurityContextHolder.getContext()
-//                .getAuthentication()
-//                .getDetails();
-
-    //    }
-
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
-//        builder.inMemoryAuthentication().withUser("Admin")
-//                .password("root").roles("ADMIN");
-//    }
 }

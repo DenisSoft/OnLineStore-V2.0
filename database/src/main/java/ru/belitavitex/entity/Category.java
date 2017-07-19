@@ -2,9 +2,8 @@ package ru.belitavitex.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +15,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "products")
-//@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Category extends BaseEntityWithName{
 
     public Category(String name) {
@@ -27,5 +25,11 @@ public class Category extends BaseEntityWithName{
     @Setter
     @OneToMany(mappedBy = "category")
     private Set<Product> products = new HashSet<>();
+
+    @Version
+    @Getter
+    @Setter
+    @Column(name = "version")
+    private long version;
 
 }

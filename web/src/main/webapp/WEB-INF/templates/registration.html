@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>Registration</title>
     <div th:replace="fragments/styles-connect :: styles-connect"></div>
 </head>
@@ -160,7 +161,7 @@
                                                 </td>
                                                 <td style="border-top-color:#fff">
                                                     <div class="control-group" >
-                                                       <label th:for="address.apartment">Квартира</label>
+                                                       <label th:for="Квартира">Квартира</label>
                                                            <div class="controls">
                                                                <input type="text" th:field="*{address.apartment}"
                                                                       pattern="^[ 0-9]+$">
@@ -179,6 +180,9 @@
                         </div>
                     </div>
                 </div>
-            </div></div></div></div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

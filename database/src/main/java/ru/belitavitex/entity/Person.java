@@ -12,7 +12,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "persons")
-@ToString(exclude = "reviews")
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class Person extends BaseEntity {
@@ -39,7 +39,7 @@ public class Person extends BaseEntity {
 
     @Getter
     @Setter
-    @OneToOne(cascade = CascadeType.ALL) //, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="addresses_id")
     private Address address;
 
@@ -53,11 +53,6 @@ public class Person extends BaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "groups")
     private Groups groups;
-
-    @ManyToMany(mappedBy = "persons")
-    @Getter
-    @Setter
-    private Set<Review> reviews = new HashSet<>();
 
     @Transient
     public String fullName() {

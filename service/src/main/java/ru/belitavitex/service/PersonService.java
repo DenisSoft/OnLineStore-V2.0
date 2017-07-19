@@ -14,4 +14,5 @@ public interface PersonService extends BaseService<Person> {
     Long getCount();
     Person findByEmail(String email);
     void delete(Long id);
+    boolean validAddress(Long id);
 }

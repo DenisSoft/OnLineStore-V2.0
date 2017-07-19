@@ -25,17 +25,16 @@ public class Article extends BaseEntityWithName {
 
     @Getter
     @Setter
-    @Column(name = "date_created_article")
+    @Column(name = "date_created")
     private LocalDate dateCreated;
 
-    @OneToMany(mappedBy = "articles")
+    @OneToMany(mappedBy = "article")
     @Setter
     @Getter
     private Set<Review> reviews = new HashSet<>();
 
-    @Version
     @Getter
     @Setter
-    @Column(name = "update_time")
-    private LocalDateTime updateTime;
+    @Column(name = "image")
+    private String image;
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Contact Us</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<div th:replace="fragments/user :: advertising"></div>
+<div class="oMainBlock">
+    <div class="container">
+        <div class="oPosBlock row-fluid sidebar">
+            <div th:replace="fragments/user :: sidebar"></div>
+
+            <div class="oContentBlock span9 visible-phone visible-tablet visible-desktop">
+                <div class="oPos maincontent">
+                    <div class="component">
+                        <div class="contact">
+                            <div class="ot-content">
+                                <div class="page-header">
+                                    <h2>
+                                        <span class="contact-name">КОНТАКТЫ ОРГАНИЗАЦИЙ</span>
+                                    </h2>
+                                </div>
+                                <div id="slide-contact" class="accordion">
+
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <strong><a href="#basic-details" data-parent="#slide-contact"
+                                                       data-toggle="collapse" class="accordion-toggle">
+                                                СП «БЕЛИТА» ООО</a></strong>
+                                        </div>
+                                        <div class="accordion-body collapse in" id="basic-details">
+                                            <div class="accordion-inner">
+                                                <dl class="contact-address dl-horizontal">
+                                                    <b>Адрес и банковские реквизиты<br></b>
+                                                    <i>220089, Республика Беларусь,
+                                                        г.Минск, ул.Декабристов, 29а
+                                                        р/с BY75BLBB30120100341803001001 в Дирекции ОАО «Белинвестбанк»
+                                                        по г. Минску и Минской области,
+                                                        БИК/BIC BLBBBY2X г. Минск, ул. Коллекторная, 11
+                                                        УНП 100341803, ОКПО 05408253</i><br><br>
+                                                    <b>Телефон<br></b>
+                                                    <i>+375 (17) 220-42-60; +375 (17) 222-93-68 (факс)</i><br><br>
+                                                    <b>E-mail<br></b>
+                                                    <i>info@belita.by</i>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <strong><a href="#display-form" data-parent="#slide-contact"
+                                                       data-toggle="collapse" class="accordion-toggle">
+                                                ЗАО «Витэкс»</a></strong>
+                                        </div>
+                                        <div class="accordion-body collapse" id="display-form">
+                                            <div class="accordion-inner">
+                                                <dl class="contact-address dl-horizontal">
+                                                    <b>Адрес и банковские реквизиты<br></b>
+                                                    <i>220089, Республика Беларусь,
+                                                        г.Минск, ул.Декабристов, 29а
+                                                        р/с BY75BLBB30120100341803001001 в Дирекции ОАО «Белинвестбанк»
+                                                        по г. Минску и Минской области,
+                                                        БИК/BIC BLBBBY2X г. Минск, ул. Коллекторная, 11
+                                                        УНП 100341803, ОКПО 05408253</i><br><br>
+                                                    <b>Телефон<br></b>
+                                                    <i>+375 (17) 220-42-60; +375 (17) 222-93-68 (факс)</i><br><br>
+                                                    <b>E-mail<br></b>
+                                                    <i>info@belita.by</i>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-group">
+                                        <div class="accordion-heading">
+                                            <strong><a href="#display-links" data-parent="#slide-contact"
+                                                       data-toggle="collapse" class="accordion-toggle">
+                                                Мы в социальных сетях</a></strong>
+                                        </div>
+                                        <div class="accordion-body collapse" id="display-links">
+                                            <div class="accordion-inner">
+                                                <div class="contact-links">
+                                                    <ul class="nav nav-tabs nav-stacked">
+                                                        <li><a href="http://twitter.com/">Twitter</a></li>
+                                                        <li><a href="http://www.youtube.com/user/">YouTube</a></li>
+                                                        <li><a href="http://www.facebook.com/">Facebook</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -7,4 +7,5 @@ import ru.belitavitex.entity.CustomerOrder;
  * Created by Dzianis on 22.06.2017.
  */
 public interface CustomerOrderDao extends BaseDao<CustomerOrder> {
+    void update(CustomerOrder customerOrder);
 }

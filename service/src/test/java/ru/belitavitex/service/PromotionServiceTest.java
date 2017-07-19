@@ -23,5 +23,4 @@ public class PromotionServiceTest extends BaseServiceTest<Promotion> {
     protected Promotion getModel() {
         return new Promotion();
     }
-
 }

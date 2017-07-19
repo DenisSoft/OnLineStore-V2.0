@@ -13,9 +13,7 @@ import ru.belitavitex.util.PersonTestDataImporter;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 
 /**
@@ -64,5 +62,31 @@ public class PersonServiceTest extends BaseServiceTest<Person> {
         personTestDataImporter.importTestData();
         Person result = personService.findByEmail("mironov@bk.ru");
         assertEquals(result.getFirstName(), "Егор");
+    }
+
+    @Test
+    public void testValidAddress() {
+        personTestDataImporter.importTestData();
+        Person person = personService.findAll().get(0);
+        assertTrue(personService.validAddress(person.getId()));
+        person.getAddress().setZip(null);
+        person.getAddress().setCountry(null);
+        person.getAddress().setStreet(null);
+        person.getAddress().setCity(null);
+        person.getAddress().setBuilding(null);
+        person.getAddress().setHouse(null);
+        person.getAddress().setApartment(null);
+        personService.save(person);
+        assertFalse(personService.validAddress(person.getId()));
+    }
+
+    @Test
+    public void testDelete() {
+        personTestDataImporter.importTestData();
+        Person person = personService.findAll().get(0);
+        Long id = person.getId();
+        assertNotNull(personService.findOne(id));
+        personService.delete(id);
+        assertNull(personService.findOne(id));
     }
 }

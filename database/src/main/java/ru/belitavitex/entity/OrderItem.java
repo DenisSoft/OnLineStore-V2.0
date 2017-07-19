@@ -36,4 +36,8 @@ public class OrderItem extends BaseEntity {
     @Setter
     private int quantity;
 
+    public double cost(){
+        return product.getPrice() * quantity;
+    }
+
 }

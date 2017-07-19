@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>All Orders</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <legend>Все заказы.</legend>
+            <p th:if="${error}" class="custom_style_error custom_desc_error">
+                <span th:text="${error}"></span></p>
+            <p th:if="${success}" class="custom_style_success custom_desc_success">
+                <span th:text="${success}"></span></p>
+            <table class="category table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th><strong>#</strong></th>
+                    <th><strong>Заказчик</strong></th>
+                    <th><strong>Дата создания</strong></th>
+                    <th><strong>Дата выполнения</strong></th>
+                    <th><strong>Статус</strong></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order : ${orders}">
+                    <td th:text="${order.id}"></td>
+                    <td th:text="${order.person.fullName()}"></td>
+                    <td th:text="${order.dateCreated}"></td>
+                    <td th:text="${order.getDateClosing()}"></td>
+                    <td th:text="${order.orderStatus}"></td>
+                    <td th:align="center">
+                        <div class="btn-group">
+                            <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>Действия</a>
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a th:href="@{/Admin/DetailsOrder/{id}(id=${order.id})}">
+                                    <i class="icon-pencil"></i>Детали</a></li>
+                                <li><a th:href="@{/Admin/ChangeStatus/{id}(id=${order.id})}">
+                                    <i class="icon-pencil"></i>Закрыть</a></li>
+                                <li><a th:href="@{/Admin/DeleteOrder/{id}(id=${order.id})}">
+                                    <i class="icon-trash"></i>Удалить</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div><br><br><br>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

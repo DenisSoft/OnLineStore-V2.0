@@ -16,11 +16,16 @@ public class User extends org.springframework.security.core.userdetails.User {
 
     @Setter
     @Getter
+    private Long id;
+
+    @Setter
+    @Getter
     private String fullName;
 
-    public User(String fullName, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+    public User(Long id, String fullName, String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.fullName = fullName;
+        this.id = id;
     }
 
 }

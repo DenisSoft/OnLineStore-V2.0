@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Order Details</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <legend>Информация по заказу.</legend>
+            <table class="category table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="body-order">
+                        Номер заказа:<strong th:text="${order.id} +'.  '">1</strong>
+                        Заказчик:<a th:href="@{/Admin/PersonDetails/{id}(id=${order.person.id})}">
+                        <strong th:text="${order.person.fullName()} +'.  '">Дядя Федор</strong></a>
+                        Дата создания: <strong th:text="${order.dateCreated} +'.  '">1990.01.01</strong>
+                        Дата выполнения: <strong th:text="(${order.dateClosing} == null ?
+                                                 ' - ' : ${order.dateClosing}) +'.  '">-</strong>
+                        Статус: <strong th:text="${order.orderStatus} +'.  '">Создан</strong>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <table class="cart-summary body-order" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                        <th align="center" width="100px">#</th>
+                        <th align="left"> Наименование </th>
+                        <th align="center" width="100px">Цена</th>
+                        <th align="center" width="100px">Количество</th>
+                        <th align="center" width="100px">Стоимость</th>
+                        <th></th>
+                    </tr>
+                    <tr th:each="orderItem : ${order.orderItems}">
+                        <td th:text="${orderItem.product.id}" align="center"></td>
+                        <td th:text="${orderItem.product.name}"></td>
+                        <td th:text="${orderItem.product.price}" align="center"></td>
+                        <td th:text="${orderItem.quantity}" align="center"></td>
+                        <td th:text="${#numbers.formatDecimal((orderItem.cost()),
+                                                   0, 'DEFAULT', 2, 'DEFAULT')}" align="center"></td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="3"></td>
+                        <td align="center"><strong>Итого: </strong><span class="bold">
+                        <td align="center" th:text="${#numbers.formatDecimal((order.shoppingCart()),
+                                                   0, 'DEFAULT', 2, 'DEFAULT')}" class="bold"></td>
+                        <td th:text="руб." align="left" class="bold"></td>
+
+                    </tr>
+                </table><br>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

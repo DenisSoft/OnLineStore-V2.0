@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Articles</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<div th:replace="fragments/user :: advertising"></div>
+<div class="oMainBlock">
+    <div class="container">
+        <div class="oPosBlock row-fluid sidebar">
+            <div th:replace="fragments/user :: sidebar"></div>
+            <div class="oContentBlock span9 visible-phone visible-tablet visible-desktop">
+                <div class="oPos maincontent">
+                    <div class="component">
+                        <div class="ot-content">
+                            <div id="k2Container" class="tagView">
+                                <div class="k2FeedIcon">
+                                    <a href="" title="Subscribe to this RSS feed">
+                                        <span>Журнал МИР КОСМЕТИКИ</span>
+                                    </a>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="tagItemList">
+                                    <div th:each="article : ${articles}">
+                                        <div class="tagItemView">
+                                            <div class="tagItemHeader">
+                                                <h2 class="tagItemTitle">
+                                                    <a th:href="@{/Article/{id}(id=${article.id})}"
+                                                       th:text="${article.name}">Название статьи</a>
+                                                </h2>
+                                            </div>
+                                            <div class="tagItemBody">
+                                                <div class="tagItemImageBlock">
+                                                <span class="tagItemImage">
+                                                    <a th:href="@{/Article/{id}(id=${article.id})}">
+                                                        <img th:src="@{../../../resources/images/articles/{image}
+                                                        (image=${article.image == null ?
+                                                        'no-images.png' : article.image})}"
+                                                             style="width:300px; height:auto;">
+                                                    </a>
+                                                </span>
+                                                    <div class="clr"></div>
+                                                </div>
+                                                <div class="tagItemIntroText box-articl" th:text="${article.text}">
+                                                    <p>Текст статьи</p>
+                                                </div>
+                                                <div class="clr"></div>
+                                            </div>
+                                            <div class="clr"></div>
+                                            <div class="tagItemCategory">
+                                                <span>Опубликовано:</span>
+                                                <a th:href="@{/Article/{id}(id=${article.id})}">
+                                                    <i class="tagItemDateCreated" th:text="${article.dateCreated}"></i>
+                                                </a>
+                                            </div>
+                                            <div class="tagItemReadMore">
+                                                <a class="k2ReadMore" th:href="@{/Article/{id}(id=${article.id})}">
+                                                    Читать далее...</a>
+                                            </div>
+                                            <div class="clr"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

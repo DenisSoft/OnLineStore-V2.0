@@ -1,11 +1,18 @@
 package ru.belitavitex.config;
 
+import org.springframework.cglib.core.internal.Function;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import org.thymeleaf.dialect.IDialect;
 import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
+
+import javax.servlet.MultipartConfigElement;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Dzianis on 22.06.2017.
@@ -44,5 +51,10 @@ public class ThymeleafConfig {
         templateEngine.setTemplateResolver(templateResolver);
         templateEngine.addDialect(new SpringSecurityDialect());
         return templateEngine;
+    }
+
+    @Bean
+    public Function<String, String> currentUrlWithoutParam() {
+        return param ->   ServletUriComponentsBuilder.fromCurrentRequest().replaceQueryParam(param).toUriString();
     }
 }

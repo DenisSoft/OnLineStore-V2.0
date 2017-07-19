@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Product details</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body class="oBody ltr innerpage">
+<div th:include="fragments/header :: header"></div>
+<div th:replace="fragments/user :: advertising"></div>
+<div class="oMainBlock">
+    <div class="container">
+        <div class="oPosBlock row-fluid sidebar">
+            <div th:replace="fragments/user :: sidebar"></div>
+
+            <div class="oContentBlock span9 visible-phone visible-tablet visible-desktop">
+                <div id="system-message-container">
+                    <div>
+                    </div>
+                </div>
+                <div class="oPos maincontent">
+                    <div class="component">
+                        <div class="productdetails-view productdetails">
+                            <div class="ot-content">
+                                <div class="product-preview">
+
+                                    <div class="span5">
+                                        <div>
+
+                                            <div class="main-image">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active">
+                                                        <a title="" rel="vm-additional-images" href="">
+                                                            <img th:src="@{../../../resources/images/products/{image}
+                                                            (image=${orderItem.product.image == null ?
+                                                            'no-images.png' : orderItem.product.image})}" alt=""></a>
+                                                    </div>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="span7">
+
+                                        <div class="product-name">
+                                            <h1 th:text="${orderItem.product.name}">Супер шампунь</h1>
+                                        </div>
+                                        <div class="product-price floatright">
+                                            Цена:
+                                                <div class="PricesalesPrice" style="display : block;">
+                                                    <span class="PricesalesPrice"
+                                                          th:text="${orderItem.product.price} +' руб.'">5,0 руб.</span>
+                                                </div>
+                                            </div>
+                                        <div class="clear"></div>
+                                        <div class="product-short-description"
+                                             th:text="${orderItem.product.description}">
+                                            Бла..Бла..Бла..
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="spacer-buy-area count" >
+                                            <div class="addtocart-area">
+                                                <form class="product" th:action="@{/AddToCart}"
+                                                      method="post" th:object="${orderItem}">
+                                                    <div class="addtocart-bar">
+                                                        <label class="quantity_box">Количество: </label>
+                                                            <span class="quantity-box">
+                                                                 <label th:for="quantity">
+                                                                      <input th:field="*{quantity}"
+                                                                             type="number" th:min="1"/>
+                                                                 </label>
+                                                            </span>
+                                                        <input type="hidden" th:field="*{product.id}"/>
+                                                        <input type="hidden" th:field="*{product.name}"/>
+                                                        <input type="hidden" th:field="*{product.price}"/>
+                                                        <span class="addtocart-button">
+                                                            <input type="submit" class="addtocart-button"
+                                                                  value="Добавить в корзину">
+                                                        </span>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </form>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="ot-content">
+                    <div th:if="${orderItem.product.getReviews().size() != 0}">
+                        <div class="page-header">
+                            <h2>
+                                <a href="">Отзывы</a>
+                            </h2>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="browse-view">
+                            <div th:each="review : ${orderItem.product.getReviews()}">
+                                <div class="article-info muted">
+                                    <dl class="article-info">
+                                        <dt class="article-info-term" th:text="${review.person.fullName()}"></dt>
+                                            <span class="itemImageCaption" th:text="${review.dateCreated}" ></span>
+                                    </dl>
+                                </div>
+                                <p th:text="${review.comment}"></p>
+                                <div class="itemContentFooter"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="itemAuthorLatest">
+                            <h4 id="validation-message" style="color: red"></h4>
+                            <h3>Оставить отзыв</h3>
+                            <div class="clr"></div>
+                        </div>
+                        <form>
+                            <label for="comment"></label>
+                            <input type="text" id="comment" style=" width: 815px; height: 60px;"><br>
+                            <label for="id"></label>
+                            <input type="hidden" id="id" th:value="*{orderItem.product.id}"><br>
+                            <button type="button" class="btn btn-primary" onclick="saveReview()">Сохранить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

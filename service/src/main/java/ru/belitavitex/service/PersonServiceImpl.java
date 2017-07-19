@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.belitavitex.dao.PersonDao;
 import ru.belitavitex.dao.common.BaseDao;
+import ru.belitavitex.entity.Address;
 import ru.belitavitex.entity.Person;
 import ru.belitavitex.service.common.BaseServiceImpl;
 
@@ -55,8 +56,19 @@ public class PersonServiceImpl extends BaseServiceImpl<Person> implements Person
 
     @Override
     public void delete(Long id) {
-        Person person = new Person();
-        person.setId(id);
+        Person person = personDao.findOne(id);
         personDao.delete(person);
+    }
+
+    public boolean validAddress(Long id){
+        Address address = personDao.findOne(id).getAddress();
+        return address.getApartment() != null
+                && address.getBuilding() != null
+                && address.getApartment() != null
+                && address.getCity() != null
+                && address.getZip() != null
+                && address.getCountry() != null
+                && address.getHouse() != null
+                && address.getStreet() != null;
     }
 }

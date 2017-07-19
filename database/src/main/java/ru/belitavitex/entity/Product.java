@@ -11,10 +11,15 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "products")
-@ToString(exclude = "category")
+@ToString(exclude = {"category", "reviews", "promotions"})
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product extends BaseEntityWithName{
+
+    @Getter
+    @Setter
+    @Column(name = "image")
+    private String image;
 
     @Getter
     @Setter
@@ -24,16 +29,16 @@ public class Product extends BaseEntityWithName{
     @Getter
     @Setter
     @Column(name = "price")
-    private int price;
+    private Double price;
 
     @Getter
     @Setter
     @Column(name = "residue")
     private int residue;
 
-    @ManyToMany(mappedBy = "products")
-    @Getter
+    @OneToMany(mappedBy = "product")
     @Setter
+    @Getter
     private Set<Review> reviews = new HashSet<>();
 
     @Getter

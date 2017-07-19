@@ -8,4 +8,5 @@ import ru.belitavitex.service.common.BaseService;
  */
 
 public interface ArticleService extends BaseService<Article>{
+    void delete(Long id);
 }

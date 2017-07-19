@@ -13,5 +13,4 @@ public interface BaseDao <T extends BaseEntity> {
     List<T> findAll();
     void delete(T entity);
     T findOne(Long id);
-
 }

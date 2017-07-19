@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>All Articles</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<div th:replace="fragments/user :: advertising"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <div th:unless="${articles.size() == 0}">
+                <legend>Все статьи.</legend>
+                <p th:if="${error}" class="custom_style_error custom_desc_error">
+                    <span th:text="${error}"></span></p>
+                <p th:if="${success}" class="custom_style_success custom_desc_success">
+                    <span th:text="${success}"></span></p>
+                <div th:if="${articles}">
+                    <table class="category table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th><strong>#</strong></th>
+                            <th><strong>Фото</strong></th>
+                            <th><strong>Описание</strong></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="article : ${articles}">
+                            <td th:text="${article.id}"></td>
+                            <td width="100px">
+                                <span class="tagItemImage">
+                                    <img th:src="@{../../../resources/images/articles/{image}
+                                                        (image=${article.image == null ?
+                                                        'no-images.png' : article.image})}"
+                                         style="width:70px; height:auto;">
+                                    </span>
+                            </td>
+                            <td class="box-articls">Название:<br>
+                                <i th:text="${article.name}"></i><br>
+                                Статья:<br>
+                                <i th:text="${article.text}"></i>
+
+                            </td>
+                            <td th:align="center">
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>Действия</a>
+                                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a th:href="@{/Admin/UpgradeArticle/{id}(id=${article.id})}">
+                                            <i class="icon-pencil"></i>Изменить</a></li>
+                                        <li><a th:href="@{/Admin/DeleteArticle/{id} (id=${article.id})}">
+                                            <i class="icon-trash"></i>Удалить</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div th:if="${articles.size() == 0}">
+                <legend>Статьи отсутствуют.</legend>
+            </div>
+
+        </div>
+    </div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

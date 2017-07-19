@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>All Reviews</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <div th:unless="${reviews.size() == 0}">
+            <legend>
+                <p th:text="${publish} ? 'Опубликованные отзывы.' : 'Отзывы на модерации.'"></p>
+            </legend>
+            <table class="category table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th><strong>#</strong></th>
+                    <th><strong>Писатель</strong></th>
+                    <th><strong>На</strong></th>
+                    <th><strong>Дата</strong></th>
+                    <th><strong>Отзыв</strong></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="review : ${reviews}">
+                    <td th:text="${review.id}"></td>
+                    <td th:text="${review.person.fullName()}"></td>
+                    <td>
+                        <div th:if="${review.product}" th:text="'Продукт: ' +${review.product.name}"></div>
+                        <div th:if="${review.article}" th:text="'Статья: ' +${review.article.name}"></div>
+                    </td>
+                    <td th:text="${review.dateCreated}"></td>
+                    <td th:text="${review.comment}"></td>
+                    <td th:align="center">
+
+                        <div class="btn-group">
+                            <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>Действия</a>
+                            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <p th:unless="${publish}">
+                                    <li><a th:href="@{/Admin/PublishReview/{id}(id=${review.id})}">
+                                        <i class="icon-pencil"></i>Опубликовать</a></li>
+                                </p>
+                                <li><a th:href="@{/Admin/DeleteReview/{id}(id=${review.id})}">
+                                    <i class="icon-trash"></i>Удалить</a></li>
+                            </ul>
+                        </div>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+            <div th:if="${reviews.size() == 0}">
+                <legend>В данной категории отзывы отсутствуют.</legend>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

@@ -28,19 +28,19 @@ public class ProductTestDataImporter {
                 "Легчайшая формула бальзама, не содержащая масел, " +
                  "специально разработана для максимально эффективного ухода " +
                  "за жирными и быстро загрязняющимися волосами.",
-                6, category);
+                5.56D, category);
         Product shampoos = saveProduct("SPA – шампунь Минеральный",
                 "Шампунь прекрасно очищает, не вымывая " +
                 "естественную защиту волос, питает кожу головы. Помогает " +
                 "оградить волосы от вредного воздействия окружающей среды.",
-                5, category);
+                5D, category);
         Product showerGels = saveProduct("ГЕЛЬ ДЛЯ ДУША АКВА-ДРЕНАЖ",
                 "Инновационная формула геля для душа обеспечивает " +
                  "эффективное очищение кожи и подготовку к антицеллюлитным " +
-                 "процедурам.", 9, category);
+                 "процедурам.", 9D, category);
     }
 
-    private Product saveProduct(String name, String description, int price,
+    private Product saveProduct(String name, String description, Double price,
                                 Category category) {
         Product product = new Product();
         product.setName(name);

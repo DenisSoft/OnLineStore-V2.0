@@ -2,6 +2,7 @@ package ru.belitavitex.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 import ru.belitavitex.dao.CategoryDao;
 import ru.belitavitex.dao.ProductDao;
@@ -13,7 +14,7 @@ import ru.belitavitex.service.common.BaseServiceImpl;
  * Created by Dzianis on 22.06.2017.
  */
 @Service
-@Transactional
+@Transactional //(isolation = Isolation.REPEATABLE_READ)
 public class CategoryServiceImpl extends BaseServiceImpl<Category>  implements CategoryService {
 
     private final CategoryDao categoryDao;
@@ -32,8 +33,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category>  implements C
 
     @Override
     public boolean delete(Long id) {
-        Category category = new Category();
-        category.setId(id);
+        Category category = categoryDao.findOne(id);
         if (productDao.findByCategory(category).size() == 0){
             categoryDao.delete(category);
             return true;

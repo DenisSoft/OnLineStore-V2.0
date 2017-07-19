@@ -12,8 +12,8 @@
                         <div class="mod-content clearfix">
                             <div class="custom">
                                 <div class="ot_logo"><a href="/home"><img
-                                        src="../../resources/images/logo.png" alt="" border="0"
-                                        th:src="@{../../resources/images/logo.png}"></a>
+                                        src="../../../resources/images/logo.png" alt="" border="0"
+                                        th:src="@{../../../resources/images/logo.png}"></a>
                                 </div>
                             </div>
                         </div>
@@ -25,17 +25,15 @@
                     <div class="ot-mod-outer standard module floatright">
                         <div class="ot-mod-inner clearfix">
                             <div class="mod-content clearfix">
-                                <div class="vmCartModule " id="vmCartModule98">
+                                <div class="vmCartModule">
                                     <div class="vm_cart">
-                                        <span class="ico-cart">
-                                            <a href="/home">
-                                                <!--<img src="../../resources/images/cart.png" alt="" border="0">-->
-                                            </a>
-                                        </span>
-                                        <span class="total_products" th:text="#{header.cart.empty}">
-                                            Корзина пуста</span><br>
+                                        <span class="ico-cart" ></span>
+                                        <span th:if="${session.cart}" class="total_products"
+                                                  th:text="'У вас в корзине ' +${session.cart.quantityInCart() +' тов.'}"></span>
+                                        <span th:unless="${session.cart}" class="total_products"
+                                                  th:text="#{header.cart.empty}"></span><br>
                                         <span class="show_cart">
-			                            <a href="/home" th:text="#{header.cart.show}">В корзину</a></span>
+			                                      <a href="/Cart" th:text="#{header.cart.show}">В корзину</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +46,7 @@
                             <span class="ot-welcome" th:text="#{header.welcome}">Добро пожаловать, </span>
                             <span sec:authentication="principal.fullName"></span><br>
                             <a href="/Logout" th:text="#{header.exit}" >Выход</a>
-                         </div>
+                        </div>
                     </div>
                 </div>
                 <div class="ot-mod-outer standard module Clearfix">
@@ -63,8 +61,8 @@
                     <div class="ot-mod-inner clearfix">
                         <div class="mod-content clearfix">
                             <div class="custom floatleft">
-                                <div class="custom_top"><img src="../../resources/images/custom_top.png" alt=""
-                                                             border="0">
+                                <div class="custom_top">
+                                    <img src="../../../resources/images/custom_top.png" border="0">
                                 </div>
                             </div>
                         </div>

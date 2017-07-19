@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
         if (person == null) {
             throw new UsernameNotFoundException("Can't find user by provided E-mail!");
         }
-        return new User(person.fullName(), person.getEmail(),
+        return new User(person.getId(), person.fullName(), person.getEmail(),
                 person.getPassword(), getUserAuthorities(person));
     }
 

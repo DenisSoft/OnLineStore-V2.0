@@ -17,7 +17,6 @@ public class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
     private SessionFactory sessionFactory;
     private final Class<T> modelClass;
 
-
     @SuppressWarnings("unchecked")
     public BaseDaoImpl() {
         this.modelClass = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), BaseDaoImpl.class);

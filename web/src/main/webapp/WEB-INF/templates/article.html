@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
+<script src="/resources/js/jquery-3.2.1.min.js"></script>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Article</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+
+<body>
+<div th:include="fragments/header :: header"></div>
+<div th:replace="fragments/user :: advertising"></div>
+<div class="oMainBlock">
+    <div class="container">
+        <div class="oPosBlock row-fluid sidebar">
+            <div th:replace="fragments/user :: sidebar"></div>
+            <div class="oContentBlock span9 visible-phone visible-tablet visible-desktop">
+                <div class="oPos maincontent">
+                    <div class="component">
+                        <span id="startOfPageId29"></span>
+                        <div class="ot-content">
+                            <div id="k2Container" class="itemView">
+                                <div class="itemHeader">
+                                    <h2 class="itemTitle" th:text="${article.name}">История создания</h2>
+                                    <span class="itemDateCreated"
+                                          th:text="'Опубликовано: ' +${article.dateCreated}">18 Июня 2017</span>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="itemBody">
+                                    <div class="itemImageBlock">
+                                        <span class="itemImage">
+                                            <a class="modal" rel="{handler: 'image'}" href="">
+                                                <img th:src="@{../../../resources/images/articles/{image}
+                                                    (image=${article.image == null ? 'no-images.png' : article.image})}"
+                                                     style="width:600px; height:auto;">
+                                            </a>
+                                        </span>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="itemFullText">
+                                        <p th:text="${article.text}"></p>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="itemBackToTop">
+                                    <a href="/Articles">Вернуться назад</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <div class="ot-content">
+                    <div th:if="${article.getReviews().size() != 0}">
+                        <div class="page-header">
+                            <h2>
+                                <a href="">Отзывы</a>
+                            </h2>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="browse-view">
+                            <div th:each="review : ${article.getReviews()}">
+                                <div class="article-info muted">
+                                    <dl class="article-info">
+                                        <dt class="article-info-term" th:text="${review.person.fullName()}"></dt>
+                                        <span class="itemImageCaption" th:text="${review.dateCreated}" ></span>
+                                    </dl>
+                                </div>
+                                <p th:text="${review.comment}"></p>
+                                <div class="itemContentFooter"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                        <div class="itemAuthorLatest">
+                            <h4 id="validation-message" style="color: red"></h4>
+                            <h3>Оставить отзыв</h3>
+                            <div class="clr"></div>
+                        </div>
+                        <form>
+                            <label for="comment"></label>
+                            <input type="text" id="comment" style=" width: 815px; height: 60px;"><br>
+                            <label for="id"></label>
+                            <input type="hidden" id="id" th:value="*{article.id}"><br>
+                            <button type="button" class="btn btn-primary"
+                                    onclick="saveReviewArticle()">Сохранить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

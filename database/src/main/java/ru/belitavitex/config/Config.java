@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.sql.Connection;
 import java.util.Properties;
 
 /**
@@ -47,6 +48,9 @@ public class Config {
     @Value("${hibernate.creation_policy}")
     private String creationPolicy;
 
+    @Value("${hibernate.creation_isolation}")
+    private String creationIsolation;
+
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
@@ -63,7 +67,6 @@ public class Config {
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan("ru.belitavitex.entity");
         sessionFactoryBean.setHibernateProperties(hibernateProperties());
-
         return sessionFactoryBean;
     }
 
@@ -74,6 +77,7 @@ public class Config {
         properties.setProperty("hibernate.show_sql", showSql);
         properties.setProperty("hibernate.format_sql", formatSql);
         properties.setProperty("hibernate.hbm2ddl.auto", creationPolicy);
+        properties.setProperty("hibernate.connection.isolation", creationIsolation);
         return properties;
     }
 
@@ -83,6 +87,4 @@ public class Config {
         transactionManager.setSessionFactory(sessionFactory);
         return transactionManager;
     }
-
-
 }

@@ -24,6 +24,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 
     @Override
     public List<T> findAll() {
+
         return getBaseDao().findAll();
     }
 

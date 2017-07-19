@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>All categories</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <legend>Все категории.</legend>
+            <p th:if="${error}" class="custom_style_error custom_desc_error">
+                <span th:text="${error}"></span></p></p>
+            <p th:if="${success}" class="custom_style_success custom_desc_success">
+                <span th:text="${success}"></span></p>
+            <table class="category table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th><strong>#</strong></th>
+                    <th><strong th:text="#{category.name}">Название</strong></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="category : ${session.categories}" th:class="${category}">
+                    <td th:text="${category.id}"></td>
+                    <td th:text="${category.name}"></td>
+                    <td style="text-align: right;">
+                        <a th:href="@{/Admin/UpgradeCategory/{id}(id=${category.id})}">
+                            <button class="btn-small btn-info" type="button">Изменить</button></a>
+                        <a th:href="@{/Admin/DeleteCategory/{id}(id=${category.id})}">
+                            <button class="btn-small btn-danger" type="button">Удалить</button></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

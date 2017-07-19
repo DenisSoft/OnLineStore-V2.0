@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div th:fragment="userInformation">
+    <div class="oContentBlock span9" style=" margin-left: 30px;">
+        <div class="oPos maincontent">
+            <div class="component">
+                <div class="ot-content">
+                    <fieldset>
+                        <h2>Изменение информации о пользователе</h2>
+                        <form th:action="@{/Registration}" method="post" th:object="${person}" class="form-validate">
+                            <p>Пожалуйста <strong>введите или измените</strong> свою контактную информацию </p>
+                            <div class="clear"></div>
+                            <div class="adminForm user-details">
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="firstName" class="hasTip required"
+                                               aria-invalid="false">Имя<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{firstName}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="lastName" class="hasTip required"
+                                               aria-invalid="false">Фамилия<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{lastName}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="email" class="hasTip required"
+                                               aria-invalid="false">E-mail<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{email}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="password" class="hasTip required"
+                                               aria-invalid="false">Пароль<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="password" th:field="*{password}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="phone" class="hasTip required"
+                                               aria-invalid="false">Телефон
+                                            (+375-xx-xxx-xx-xx)<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{phone}" aria-invalid="false"
+                                               class="required" aria-required="true" required="required"
+                                               pattern="[\\+]375-[0-9]{2}-[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.zip" class="hasTip required"
+                                               aria-invalid="false">Индекс<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{address.zip}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.country" class="hasTip required"
+                                               aria-invalid="false">Страна<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{address.country}" aria-invalid="false"
+                                               class="required" aria-required="true" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.city" class="hasTip required"
+                                               aria-invalid="false">Город<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{address.city}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.street" class="hasTip required"
+                                               aria-invalid="false">Улица<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" th:field="*{address.street}" aria-invalid="false"
+                                               class="required" aria-required="true" required="required"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.house" class="hasTip required"
+                                               aria-invalid="false">Дом<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="number" th:field="*{address.house}"
+                                               class="required" aria-required="true" required="required"
+                                               aria-invalid="false" pattern="^[ 0-9]+$" />
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.building" class="hasTip required"
+                                               aria-invalid="false">Корпус<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="number" th:field="*{address.building}" aria-invalid="false"
+                                               class="required" aria-required="true" required="required"
+                                               pattern="^[ 0-9]+$"/>
+                                    </div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="key span4">
+                                        <label th:for="address.apartment" class="hasTip required"
+                                               aria-invalid="false">Квартира<span class="star">&nbsp;*</span>
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="number" th:field="*{address.apartment}" aria-invalid="false"
+                                               class="required" aria-required="true" required="required"
+                                               pattern="^[ 0-9]+$"/>
+                                    </div>
+                                </div>
+                                <input type="hidden" th:field="*{id}">
+                            </div>
+                            <p class="ot-submit">
+                                <input type="submit" name="Submit" class="btn btn-primary" value="Сохранить">
+                            </p>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="success">
+    <div class="oContentBlock span9" style=" margin-left: 30px;">
+        <div>
+            <div class="alert alert-success"><a class="close" data-dismiss="alert">×</a>
+                <h4 class="alert-heading" th:text="${message}" >Вы успешно добавили товар в корзину!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="cart">
+    <div class="oContentBlock span9" style="margin-left: 30px;">
+            <div th:if="${message}">
+                <div class="alert alert-info"><a class="close" data-dismiss="alert">×</a>
+                    <h4 class="alert-heading">Информация</h4>
+                    <div>
+                        <p th:text="${message}">Вы не можете совершить покупку. У Вас не заполнен адрес!</p>
+                            <a class="details" href="/ChangingUserInformation">
+                                Добавить / Изменить адрес.
+                            </a>
+                    </div>
+                </div>
+            </div>
+        <div class="oPos maincontent">
+            <div class="component">
+                <div class="cart-view">
+                    <div>
+                        <div class="width50 floatleft">
+                            <h1>Корзина</h1>
+                        </div>
+                        <div class="width50 floatleft right">
+                            <a class="continue_link"
+                               href="/ProductsInCategory/1/0/3"><span>Продолжить покупки</span></a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="ot-content">
+                        <form>
+                            <table class="cart-summary" cellspacing="0" cellpadding="0" border="0" width="100%">
+
+                                <tr>
+                                    <th align="left"> Наименование </th>
+                                    <th align="center" width="100px">Цена</th>
+                                    <th align="center" width="100px">Количество</th>
+                                    <th align="center" width="100px">Стоимость</th>
+                                    <th></th>
+                                </tr>
+                                <tr th:each="orderItem : ${session.cart.orderItems}">
+                                    <td th:text="${orderItem.product.name}"></td>
+                                    <td th:text="${orderItem.product.price}" align="center"></td>
+                                    <td th:text="${orderItem.quantity}" align="center"></td>
+                                    <td th:text="${#numbers.formatDecimal((orderItem.cost()),
+                                                   0, 'DEFAULT', 2, 'DEFAULT')}" align="center"></td>
+                                    <td th:align="center">
+                                        <a class="custom_more"
+                                           th:href="@{/RemoveFromCart/{id}(id=${orderItem.product.id})}">Удалить</a>
+                                    </td>
+                                </tr>
+                                <tr class="sectiontableentry3">
+                                    <td colspan="2" align="right">Итого:</td>
+                                    <td align="center"> <span class="priceColor2">
+                                    <td th:text="${#numbers.formatDecimal((session.cart.shoppingCart()),
+                                                   0, 'DEFAULT', 2, 'DEFAULT')}" align="center"></td></span> </td>
+                                    <td th:text="руб." align="left"></td>
+                                </tr>
+                            </table><br>
+                            <div th:unless="${message}">
+                                <a class="vm-button-correct" href="/SuccessfulPayment"><span>Оплатить</span></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="productsInCategory">
+    <div class="oContentBlock span9" style=" margin-left: 30px;">
+        <div th:if="${message}">
+            <div class="alert alert-success"><a class="close" data-dismiss="alert">×</a>
+                <h4 class="alert-heading" th:text="${message}" >Вы успешно добавили товар в корзину!</h4>
+            </div>
+        </div>
+        <div class="oPos maincontent">
+            <div class="component">
+                <div class="browse-view" th:if="${empty}">
+                    <div class="browse-top">
+                        <h3 class="category-title">Данная категория не содержит товаров.</h3>
+                    </div>
+                </div>
+                <div class="browse-view" th:unless="${empty}">
+                    <div class="browse-top">
+                        <h3 class="category-title" th:text="${category.name}">Скраб</h3>
+                        <div class="clear"></div>
+                        <div class="orderby-displaynumber">
+
+                            <div class="span6">
+                                <div class="orderlistcontainer">
+                                    <div class="title">Сортировать по</div>
+                                    <div class="activeOrder">
+                                        <a title=" +/-" href="/orderDesc?filter_product=0">Product Name  +/-</a>
+                                    </div>
+                                    <div class="orderlist" style="display: none;">
+                                        <div><a title="Category"
+                                                href="/allpresan/by,category_name?filter_product=0">Category</a>
+                                        </div>
+                                        <div><a title="Manufacturer name"
+                                                href="/allpresan/by,mf_name?filter_product=0">Manufacturer name</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="span6">
+                                <div class="display-number">
+                                    Товаров на странице<br>
+                                    <select class="inputbox" size="1"
+                                            onchange="window.top.location.href=this.options[this.selectedIndex].value">
+                                        <option th:text="${maxResults}" >3</option>
+                                        <option th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                                         (id=${category.id}, firstResult=0, maxResults=3)}" >3</option>
+                                        <option th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                                         (id=${category.id}, firstResult=0, maxResults=6)}">6</option>
+                                        <option th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                                         (id=${category.id}, firstResult=0, maxResults=9)}">9</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div th:each="product : ${products}">
+                            <div class="product ot-product span4" style="margin-left: 14px;">
+                                <div class="spacer">
+                                    <div class="product-image center">
+                                        <a th:href="@{/ProductDetails/{id}(id=${product.id})}" title="">
+                                            <img th:src="@{../../../resources/images/products/{image}
+                                            (image=${product.image == null ? 'no-images.png' : product.image})}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="product-detail">
+                                        <a class="product-name"
+                                           th:href="@{/ProductDetails/{id}(id=${product.id})}"
+                                           th:text="${product.name}"></a>
+                                        <div class="clear"></div>
+                                        <div class="product-s-desc box">
+                                            <p class="product_s_desc "
+                                               th:text="${product.description}">Читать далее ...</p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="product-addtocartbar">
+                                        <div class="product-price span6">
+                                            <div class="PricesalesPrice" style="display : block;">
+                                                <span class="PricesalesPrice"
+                                                      th:text="${product.price} +' руб.'">5 руб.</span>
+                                            </div>
+                                        </div>
+                                        <div class="product-addtocart span6">
+                                            <a th:href="@{/ProductDetails/{id}(id=${product.id})}"
+                                               class="product-details">Смотреть</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vm-pagination pagination pagination-mini pagination-centered">
+                        <ul class="pagination-list">
+                            <li th:class="${firstResult != maxResults} ? '' : 'disabled'">
+                                <a class="link-text" th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                    (id=${category.id}, firstResult=0, maxResults=${maxResults})}" >Начало</a>
+                            </li>
+                            <li th:class="${firstResult != maxResults} ? '' : 'disabled'">
+                                <a class="link-text" th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                    (id=${category.id},
+                                    firstResult=${firstResult} < ${maxResults * 2} ? 0 : ${firstResult}-${maxResults}*2,
+                                    maxResults=${maxResults})}">Предыдущая</a>
+                            </li>
+                            <li th:each='page : ${catalogOfPages}'
+                                th:class="${page == (firstResult / maxResults)}? 'disabled' : ''">
+                                <a class="link-text" th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                                         (id=${category.id},
+                                                         firstResult=${page * maxResults - maxResults},
+                                                         maxResults=${maxResults})}" th:text='${page}'>1</a>
+                            </li>
+                            <li th:class="${(firstResult / maxResults) != catalogOfPages.size()} ? '' : 'disabled'">
+                                <a class="link-text" th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                 (id=${category.id},
+                                  firstResult=${firstResult} < ${count} ? ${firstResult} : ${firstResult}-${maxResults},
+                                  maxResults=${maxResults})}" >Следующая</a></li>
+
+                            <li th:class="${(firstResult / maxResults) != catalogOfPages.size()} ? '' : 'disabled'">
+                                <a class="link-text" th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}
+                                  (id=${category.id},
+                                   firstResult=${count % maxResults} == ${0} ? ${count - maxResults} :
+                                   ${count - count % maxResults}, maxResults=${maxResults})}" >Конец</a></li>
+                        </ul>
+                        <span style="float:right"
+                              th:text="'Страница ' + ${firstResult / maxResults} + ' из '
+                                          + ${catalogOfPages.size()}">Страница 1 из 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="sidebar">
+    <div class="oPos sidebar-1 span3 visible-phone visible-tablet visible-desktop">
+        <div class="ot-mod-outer standard module">
+            <div class="ot-mod-inner clearfix">
+                <h3 class="mod-title"><span>ПОИСК ПО КАТЕГОРИЯМ</span></h3>
+                <div class="mod-content clearfix">
+                    <ul class="VMmenu menu nav" >
+                        <div th:each="category : ${session.categories}">
+                            <li class="level0  first VmClose">
+                                <a th:href="@{/ProductsInCategory/{id}/{firstResult}/{maxResults}(id=${category.id},
+                                firstResult=0, maxResults=3)}" th:text="${category.name}"></a>
+                                    <div class="line" style="border-top: 1px dashed #6d6d6d;"></div>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="clr"></div>
+                </div>
+            </div>
+        </div>
+        <div id="mod-117" class="ot-mod-outer standard module style2">
+            <div class="ot-mod-inner clearfix"><h3 class="mod-title">
+                <span>Хит продаж</span></h3>
+                <div class="mod-content clearfix">
+                    <div id="vmgroup117" class="vmgroup">
+                        <div class="vmgroup-i ot-items">
+                            <ul class="ot-vmproduct item">
+
+                                <li class="ot-product product span12 first last">
+                                    <div class="spacer">
+                                        <div class="product-image center">
+                                            <a th:href="@{/ProductDetails/{id}(id=${session.bestSeller.id})}" title="">
+                                                <img th:src="@{../../../resources/images/products/{image}
+                                                (image=${session.bestSeller.image})}" alt=""></a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="product-detail">
+                                            <div class="product-price floatright">
+                                                <div class="PricesalesPrice" style="display : block;">
+                                                     <span class="PricesalesPrice"
+                                                            th:text="${session.bestSeller.price} +' руб.'" >
+                                                     </span>
+                                                </div>
+                                            </div>
+                                            <a class="product-name" th:href="@{/ProductDetails/{id}
+                                            (id=${session.bestSeller.id})}"
+                                               th:text="${session.bestSeller.name}">Шампунь</a>
+                                            <div class="clear"></div>
+                                            <div class="product-s-desc">
+                                                <p class="product_s_desc box"
+                                                   th:text="${session.bestSeller.description}">Бла...Бла..Бла...</p>
+                                            </div>
+                                            <div class="clear"></div>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="advertising">
+    <div class="container">
+        <div class="oPosBlock row-fluid middle2">
+            <div class="oPos middle2-1 span12 visible-phone visible-tablet visible-desktop">
+                <div class="ot-mod-outer standard module">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <div class="custom">
+                                <div class="btn-group span12 no-space">
+                                    <div class="btn btn-large span4">
+                                        <span class="custom_title">ПРОПОЛИС &amp; МЁД</span>
+                                        <span class="custom_style2 custom_desc">натуральное мыло</span>
+                                        <a class="custom_more" href="#">ручной работы</a>
+                                        <div class="clr">&nbsp;</div>
+                                    </div>
+                                    <div class="btn btn-large span4">
+                                        <span class="custom_title">БЕСПЛАТНО почтой</span>
+                                        <span class="custom_style2 custom_desc">при заказе от 100 рублей</span>
+                                        <a class="custom_more" href="#">Смотреть</a>
+                                        <div class="clr">&nbsp;</div>
+                                    </div>
+                                    <div class="btn btn-large span4"><span class="custom_style2 custom_cur">40%</span>
+                                        <span class="custom_title">СКИДКИ</span>
+                                        <span class="custom_add">черная пятница уже скоро</span>
+                                        <div class="clr">&nbsp;</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div th:fragment="carousel">
+    <div class="container">
+        <div class="oPosBlock row-fluid middle1">
+            <div class="oPos middle1-1 span12 visible-phone visible-tablet visible-desktop">
+                <div id="mod-56" class="ot-mod-outer standard module slide autofit autoplay">
+                    <div class="ot-mod-inner clearfix">
+                        <div class="mod-content clearfix">
+                            <script type="text/javascript">
+                                jQuery.noConflict();
+                                jQuery(document).ready(function($) {
+                                    $('#bannergroup-56').carousel();
+                                });
+                            </script>
+                            <div id="bannergroup-56" class="bannergroup carousel slide">
+                                <div class="ot-items carousel-inner">
+                                    <div class="banneritem item text-center">
+                                        <img src="resources/images/slide3.png" alt="Slide 3" style="width: 100%;">
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="banneritem item text-center">
+                                        <img src="resources/images/slide1.png" alt="Slide 1" style="width: 100%;">
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="banneritem item text-center active">
+                                        <img src="resources/images/slide2.png" alt="Slide 2" style="width: 100%;">
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="ot-indicators">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#bannergroup-56" data-slide-to="0" class="center"></li>
+                                        <li data-target="#bannergroup-56" data-slide-to="1" class="center"></li>
+                                        <li data-target="#bannergroup-56" data-slide-to="2" class="center"></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:fragment="bestSellers">
+    <div class="oBottomBlock">
+        <div class="container">
+            <div class="oPosBlock row-fluid bottom1">
+                <div class="oPos bottom1-1 span12 visible-phone visible-tablet visible-desktop">
+                    <div class="ot-mod-outer standard module"><br>
+                        <div class="ot-mod-inner clearfix">
+                            <h3 class="mod-title"><span>Хиты продаж</span></h3>
+                            <div class="mod-content clearfix">
+                                <div class="vmgroup">
+                                    <div class="vmgroup-i ot-items">
+                                        <ul class="ot-vmproduct item" th:each="product : ${bestSellers}">
+
+                                            <li class="ot-product product span3 first" style=" margin-left: 11px; margin-right: 11px;">
+                                                <div class="spacer">
+                                                    <div class="product-image center">
+                                                        <a th:href="@{/ProductDetails/{id}
+                                                        (id=${product.id})}" title="Lorem ipsum dolor 11">
+                                                            <img th:src="@{../../../resources/images/products/{image}
+                                                            (image=${product.image})}" alt=""></a>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                    <div class="product-detail">
+                                                        <div class="product-price floatright">
+                                                            <div class="PricesalesPrice" style="display : block;">
+                                                                <span class="PricesalesPrice"
+                                                                      th:text="${product.price} +' руб.'" >5 руб.
+                                                                </span></div>
+                                                        </div>
+                                                        <a class="product-name" th:href="@{/ProductDetails/{id}
+                                                        (id=${product.id})}" th:text="${product.name}">Шампунь</a>
+                                                        <div class="clear"></div>
+                                                        <div class="product-s-desc box">
+                                                            <p class="product_s_desc"
+                                                               th:text="${product.description}">Читать далее...</p>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                    </div>
+                                                    <div class="product-addtocart">
+                                                        <a th:href="@{/ProductDetails/{id}(id=${product.id})}"
+                                                           class="product-details">Смотреть</a>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="oPosBlock row-fluid bottom2">
+                <div class="oPos bottom2-1 span12 visible-phone visible-tablet visible-desktop">
+                    <div id="mod-107" class="ot-mod-outer well well-large module">
+                        <div class="ot-mod-inner clearfix">
+                            <div class="mod-content clearfix">
+                                <div class="custom">
+                                    <div class="span6">
+                                        <img src="../../../resources/images/letter.png" border="0" style="float: left; margin: 0 10px 0 0;">
+                                        <h3>ПИШИТЕ НАМ <span class="custom_style1">НА ПОЧТУ</span></h3>
+                                    </div>
+                                    <div class="span6">
+                                        <img src="../../../resources/images/phone.png" border="0" alt="" style="float: left; margin: 0 10px 0 0;">
+                                        <h3>ПОЗВОНИТЕ НАМ <span class="custom_style2"> +375-29-684-9032</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>New category</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <form th:action="@{/Admin/SaveCategory}" method="post" th:object="${category}">
+                <legend>
+                    <p th:if="${category.id}">Изменение категории.</p>
+                    <p th:unless="${category.id}">Создание новой категории.</p>
+                </legend>
+                <div class="control-group">
+                    <div class="control-label">
+                        <label th:for="name" class="hasTip required" aria-invalid="false">
+                            Название<span class="star">&nbsp;*</span></label>
+                    </div>
+                    <div class="controls">
+                        <input type="text" th:field="*{name}" class="required" size="30"
+                               aria-required="true" required="required" aria-invalid="false">
+                        <input type="hidden" th:field="*{id}">
+                        <input type="hidden" th:field="*{version}">
+                    </div>
+                </div>
+                <p class="ot-submit">
+                    <input type="submit" name="Submit" class="btn btn-primary" value="Сохранить">
+                </p>
+            </form>
+        </div>
+    </div>
+</div></div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

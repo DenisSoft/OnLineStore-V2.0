@@ -9,7 +9,7 @@
     <persistence strategy="localTempSwap"/>
   </defaultCache>
 
-  <cache name="store"
+  <cache name="on_line_store"
          maxElementsInMemory="500"
          eternal="false"
          timeToIdleSeconds="30"

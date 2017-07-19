@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>All products</title>
     <div th:replace="fragments/styles-connect :: styles-connect"></div>
 </head>
@@ -10,40 +11,47 @@
 <div class="container">
     <div class="oPosBlock row-fluid middle2">
         <div class="ot-content">
-            <legend>Все продукты в категории.</legend>
+            <div th:unless="${products.size() == 0}">
+            <legend th:text="'Все продукты в категории - ' +${products.get(0).category.name}"></legend>
+            <p th:if="${error}" class="custom_style_error custom_desc_error">
+                <span th:text="${error}"></span></p>
+            <p th:if="${success}" class="custom_style_success custom_desc_success">
+                <span th:text="${success}"></span></p>
+            <div th:if="${products}">
             <table class="category table table-striped table-bordered table-hover">
                 <thead>
                 <tr>
                     <th><strong>#</strong></th>
-                    <th><strong th:text="#{login.firstName}">ИМЯ</strong></th>
-                    <th><strong th:text="#{login.lastName}">ФАМИЛИЯ</strong></th>
-                    <th><strong th:text="#{login.address}">АДРЕС</strong></th>
-                    <th><strong th:text="#{login.email}">E-Mail</strong></th>
-                    <th><strong th:text="#{login.phone}">ТЕЛЕФОН</strong></th>
+                    <th><strong>Название</strong></th>
+                    <th><strong>Цена</strong></th>
+                    <th><strong>Остаток</strong></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="person : ${persons}" th:class="${person}">
-                    <td th:text="${person.id}"></td>
-                    <td th:text="${person.firstName}"></td>
-                    <td th:text="${person.lastName}"></td>
-                    <td th:text="${person.address}"></td>
-                    <td th:text="${person.email}"></td>
-                    <td th:text="${person.phone}"></td>
-                    <td th:align="center">
-
-
-                        <a th:href="@{/DeletePerson/{id}(id=${person.id})}"> <!-- ?id=${person.id}">-->
-                            <button class="btn-small btn-danger" type="button">Удалить</button></a>
-
+                <tr th:each="product : ${products}">
+                    <td th:text="${product.id}"></td>
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.residue}"></td>
+                    <td style="text-align: right;">
+                        <a th:href="@{/Admin/UpgradeProduct/{id}(id=${product.id})}">
+                            <button class="btn-small btn-info" type="button">Изменить</button></a>
+                        <a th:href="@{/Admin/DeleteProduct/{id}/{categoryId}
+                        (id=${product.id}, categoryId=${product.category.id} )}">
+                        <button class="btn-small btn-danger" type="button">Удалить</button></a>
                     </td>
                 </tr>
                 </tbody>
             </table>
-        </div>
+            </div>
+            </div>
+            <div th:if="${products.size() == 0}">
+                <legend>В данной категории товары отсутствуют.</legend>
+            </div>
+
     </div>
-</div></div>
+</div>
 <div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

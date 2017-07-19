@@ -22,6 +22,22 @@ a.modal {
 .ie7 .btn-navbar{ display: none; }
 /*========================= 2. OVERIDE  =======================*/
 
+.body-order {
+	font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.onedesk{
+	margin-left: 30px;
+}
+
+.quantity-box{
+	margin-right: 50px;
+}
 
 .custom_style_success {
     color: #4E8D06;
@@ -262,6 +278,8 @@ body{
 	font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 14px;
 }
+
+
 .breadcrumb{
 	padding: 10px 20px;
 	margin: 10px 0;
@@ -740,7 +758,7 @@ a.k2ReadMore:hover{
 	font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 30px;
 	line-height: 32px;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 }
 .browse-top h3,
 .browse-top .category_description,
@@ -750,7 +768,7 @@ a.k2ReadMore:hover{
 .orderby-displaynumber{
 	padding: 10px;
 	border-top: 0;
-	text-transform: capitalize;
+	/*text-transform: capitalize;*/
 	position: relative;
 	z-index: 1;
 }
@@ -982,7 +1000,7 @@ span.addtocart-button:after{
 	right: 15px
 }
 span.addtocart-button input.addtocart-button{
-	font-family: 'Oswald';
+	font-family: 'Oswald', 'Arial Narrow';
 	font-size: 16px;
 	text-transform: uppercase;
 	padding: 8px 15px;

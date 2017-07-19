@@ -15,9 +15,14 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "reviews")
-@ToString(exclude = {"persons", "products"})
+@ToString(exclude = {"person", "product", "article" })
 @NoArgsConstructor
 public class Review extends BaseEntity{
+
+    @Setter
+    @Getter
+    @Column(name = "moderation")
+    private boolean moderation;
 
     @Setter
     @Getter
@@ -29,27 +34,21 @@ public class Review extends BaseEntity{
     @Column(name = "date_created_review")
     private LocalDate dateCreated;
 
-    @ManyToMany
-    @JoinTable(name = "persons_reviews",
-            joinColumns = @JoinColumn(name = "review_id"),
-            inverseJoinColumns = @JoinColumn(name = "person_id")
-    )
+    @ManyToOne
     @Setter
     @Getter
-    private Set<Person> persons = new HashSet<>();
+    @JoinColumn(name = "person_id")
+    private Person person;
 
-    @ManyToMany
-    @JoinTable(name = "products_reviews",
-            joinColumns = @JoinColumn(name = "review_id"),
-            inverseJoinColumns = @JoinColumn(name = "product_id")
-    )
+    @ManyToOne
     @Setter
     @Getter
-    private Set<Product> products = new HashSet<>();
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @Getter
     @Setter
     @ManyToOne
     @JoinColumn(name = "article_id")
-    private Article articles;
+    private Article article;
 }

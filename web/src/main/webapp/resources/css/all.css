@@ -2,24 +2,24 @@
 /* ================= BACKEND =====================*/
 .shortcode-buttons{ overflow: hidden; }
 .button2-left{ margin-bottom: 5px; }
-.button2-left .bsc-badge{ background: url("../images/badge.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-button{ background: url("../images/button.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-carousel{ background: url("../images/carousel.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-column{ background: url("../images/column.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-dropcap{ background: url("../images/dropcap.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-icon{ background: url("../images/icon.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-label{ background: url("../images/label.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-message{ background: url("../images/message.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-modals{ background: url("../images/modal.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-modalu{ background: url("../images/modal.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-modali{ background: url("../images/modal.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-oprettycode{ background: url("../images/code.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-spacer{ background: url("../images/spacer.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-tabs{ background: url("../images/tabs.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-tooltip{ background: url("../images/tooltip.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-well{ background: url("../images/well.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-vimeo{ background: url("../images/vimeo.png") no-repeat 100% 0 transparent; }
-.button2-left .bsc-youtube{ background: url("../images/youtube.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-badge{ background: url("../../../images/badge.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-button{ background: url("../../../images/button.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-carousel{ background: url("../../../images/carousel.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-column{ background: url("../../../images/column.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-dropcap{ background: url("../../../images/dropcap.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-icon{ background: url("../../../images/icon.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-label{ background: url("../../../images/label.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-message{ background: url("../../../images/message.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-modals{ background: url("../../../images/modal.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-modalu{ background: url("../../../images/modal.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-modali{ background: url("../../../images/modal.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-oprettycode{ background: url("../../../images/code.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-spacer{ background: url("../../../images/spacer.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-tabs{ background: url("../../../images/tabs.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-tooltip{ background: url("../../../images/tooltip.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-well{ background: url("../../../images/well.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-vimeo{ background: url("../../../images/vimeo.png") no-repeat 100% 0 transparent; }
+.button2-left .bsc-youtube{ background: url("../../../images/youtube.png") no-repeat 100% 0 transparent; }
 
 /* ============ end BACKEND css =====================*/
 

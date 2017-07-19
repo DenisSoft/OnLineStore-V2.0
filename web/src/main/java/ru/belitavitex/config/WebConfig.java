@@ -16,5 +16,4 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @Import(value = {InternationalizationConfig.class, ThymeleafConfig.class, MvcConfig.class})
 public class WebConfig {
-
 }

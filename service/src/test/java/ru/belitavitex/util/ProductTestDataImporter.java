@@ -22,7 +22,7 @@ public class ProductTestDataImporter {
     @Autowired
     private CategoryDao categoryDao;
 
-    public void importTestData() {
+    public Long importTestData() {
         Category category = new Category();
         category.setName("Бальзамы");
         categoryDao.save(category);
@@ -31,19 +31,20 @@ public class ProductTestDataImporter {
                 "Легчайшая формула бальзама, не содержащая масел, " +
                  "специально разработана для максимально эффективного ухода " +
                  "за жирными и быстро загрязняющимися волосами.",
-                6, 100, category);
+                6D, 100, category);
         Product shampoos = saveProduct("SPA – шампунь Минеральный",
                 "Шампунь прекрасно очищает, не вымывая " +
                 "естественную защиту волос, питает кожу головы. Помогает " +
                 "оградить волосы от вредного воздействия окружающей среды.",
-                5, 100,category);
+                5D, 100,category);
         Product showerGels = saveProduct("ГЕЛЬ ДЛЯ ДУША АКВА-ДРЕНАЖ",
                 "Инновационная формула геля для душа обеспечивает " +
                  "эффективное очищение кожи и подготовку к антицеллюлитным " +
-                 "процедурам.", 9, 100, category);
+                 "процедурам.", 9D, 100, category);
+        return category.getId();
     }
 
-    private Product saveProduct(String name, String description, int price,
+    private Product saveProduct(String name, String description, Double price,
                                 int residue, Category category) {
         Product product = new Product();
         product.setName(name);

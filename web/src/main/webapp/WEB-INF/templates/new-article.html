@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>New article</title>
+    <div th:replace="fragments/styles-connect :: styles-connect"></div>
+</head>
+<body>
+<div th:include="fragments/header :: header"></div>
+<br>
+<div class="container">
+    <div class="oPosBlock row-fluid middle2">
+        <div class="ot-content">
+            <form th:action="@{/Admin/SaveArticle}" method="post" enctype="multipart/form-data">
+                <legend>
+                    <p th:if="${article.id}">Редактирование статьи.</p>
+                    <p th:unless="${article.id}">Создание новой статьи</p>
+                </legend>
+                <div class="control-group">
+                    <div class="control-label">
+                        <label th:for="article.name" class="hasTip required" aria-invalid="false" style=" width: 400px;">
+                            Название<span class="star">&nbsp;*</span></label>
+                        <input type="text" th:field="*{article.name}" class="required" size="30"
+                               aria-required="true" required="required" aria-invalid="false">
+                        <label th:for="article.text" class="hasTip required" aria-invalid="false">
+                            Текст статьи<span class="star">&nbsp;*</span></label>
+                        <textarea class="text-articles" th:field="*{article.text}" aria-required="true"
+                                  required="required" aria-invalid="false"></textarea>
+                        <label></label>
+                        <input class="form-control" type="file" name="file"/><br/>
+
+                    </div>
+                    <div class="controls">
+                        <input type="hidden" th:field="*{article.id}">
+                        <input type="hidden" th:field="*{article.image}">
+                    </div>
+                </div>
+                <p class="ot-submit">
+                    <input type="submit" name="Submit" class="btn btn-primary" value="Сохранить">
+                </p>
+            </form>
+        </div>
+    </div>
+</div></div>
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

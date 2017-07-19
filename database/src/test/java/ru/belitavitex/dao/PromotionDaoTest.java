@@ -22,5 +22,4 @@ public class PromotionDaoTest extends BaseDaoTest<Promotion> {
     protected Promotion getModel() {
         return new Promotion();
     }
-
 }
